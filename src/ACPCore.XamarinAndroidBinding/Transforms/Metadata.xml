@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <!-- Use ACPCore for Xamarin plugin name -->
+    <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='MobileCore']" name="managedName">ACPCore</attr>
+    <!-- Resolve build errors -->
+    <attr path="/api/package[@name='com.adobe.marketing.mobile']/interface[@name='VariantSerializer']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='EventData']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='Rule']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='RuleCondition']" name="visibility">public</attr>
+    <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='AndroidFullscreenMessage']" name="visibility">public</attr>
+    <remove-node path="/api/package[@name='com.adobe.marketing.mobile']/interface[@name='FloatingButtonView.OnPositionChangedListener']" />
+</metadata>

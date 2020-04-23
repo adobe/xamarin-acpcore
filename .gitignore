@@ -333,3 +333,13 @@ ASALocalRun/
 
 # Generated .cs files for HelloXamarin android app
 HelloXamarin/HelloXamarin/Resources/Resource.designer.cs
+
+# Generated .txt "readme" files
+src/ACPCore.XamarinAndroidBinding/Additions/AboutAdditions.txt
+src/ACPCore.XamarinAndroidBinding/Jars/AboutJars.txt
+src/ACPIdentity.XamarinAndroidBinding/Additions/AboutAdditions.txt
+src/ACPIdentity.XamarinAndroidBinding/Jars/AboutJars.txt
+src/ACPLifecycle.XamarinAndroidBinding/Additions/AboutAdditions.txt
+src/ACPLifecycle.XamarinAndroidBinding/Jars/AboutJars.txt
+src/ACPSignal.XamarinAndroidBinding/Additions/AboutAdditions.txt
+src/ACPSignal.XamarinAndroidBinding/Jars/AboutJars.txt

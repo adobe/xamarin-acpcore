@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <!-- Use ACPSignal for Xamarin plugin name -->
+  <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='Signal']" name="managedName">ACPSignal</attr>
+</metadata>
