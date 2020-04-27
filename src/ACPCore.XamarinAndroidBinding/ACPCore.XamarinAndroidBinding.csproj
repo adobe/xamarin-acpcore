@@ -27,7 +27,7 @@
     <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <Summary>Adobe Experience Platform - Core plugin for Xamarin Android.</Summary>
-    <Title>ACPCore</Title>
+    <Title>ACPCore.XamarinAndroid</Title>
     <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

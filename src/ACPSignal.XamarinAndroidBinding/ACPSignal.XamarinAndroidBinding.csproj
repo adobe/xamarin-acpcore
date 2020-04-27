@@ -18,12 +18,12 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <PackageId>ACPSignal</PackageId>
+    <PackageId>ACPSignal.XamarinAndroid</PackageId>
     <PackageVersion>1.0.3</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Copyright>Copyright 2020 Adobe All Rights Reserved. NOTICE: Adobe permits you to use, modify, and distribute this file in accordance with the terms of the Adobe license agreement accompanying it.If you have received this file from a source other than Adobe, then your use, modification, or distribution of it requires the prior written permission of Adobe. This file has been modified from its original form.The original license can be viewed in the NOTICES.txt file.</Copyright>
     <Owners>Adobe Inc.</Owners>
-    <Title>ACPSignal</Title>
+    <Title>ACPSignal.XamarinAndroid</Title>
     <Summary>Adobe Experience Platform - Signal plugin for Xamarin Android.</Summary>
     <Description>Adobe Experience Platform - Signal plugin for Xamarin Android.</Description>
     <PackOnBuild>true</PackOnBuild>

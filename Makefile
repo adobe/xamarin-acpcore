@@ -16,11 +16,14 @@ clean-folders:
 	cd src/ACPLifecycle.XamarinAndroidBinding/bin && rm -rf Debug
 	cd src/ACPSignal.XamarinAndroidBinding/ && rm -rf obj
 	cd src/ACPSignal.XamarinAndroidBinding/bin && rm -rf Debug
+	rm -rf bin
 
 clean: msbuild-clean clean-folders setup
 
-bindings:
-	cd src && msbuild -t:build
-
-nuget:
+all:
 	cd src && msbuild -t:pack
+	mkdir bin
+	cp src/ACPCore.XamarinAndroidBinding/bin/Debug/*.nupkg ./bin
+	cp src/ACPIdentity.XamarinAndroidBinding/bin/Debug/*.nupkg ./bin
+	cp src/ACPLifecycle.XamarinAndroidBinding/bin/Debug/*.nupkg ./bin
+	cp src/ACPSignal.XamarinAndroidBinding/bin/Debug/*.nupkg ./bin
