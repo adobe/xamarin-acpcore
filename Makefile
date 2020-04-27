@@ -1,3 +1,5 @@
+# Makefile requires Visual Studio for Mac Community version to be installed
+# Tested with 8.5.3 (build 16)
 setup:
 	cd src/ACPCore.XamarinAndroidBinding/ && msbuild -t:restore
 	cd src/ACPIdentity.XamarinAndroidBinding/ && msbuild -t:restore
@@ -20,6 +22,8 @@ clean-folders:
 
 clean: msbuild-clean clean-folders setup
 
+# Makes ACPCore android bindings and NuGet packages. The android bindings (.dll) will be available in BindingDirectory/bin/Debug
+# The NuGet packages get created in the same directory but are then moved to src/bin.
 all:
 	cd src && msbuild -t:pack
 	mkdir bin
