@@ -18,6 +18,17 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <PackageId>ACPCore.XamarinAndroid</PackageId>
+    <PackageVersion>1.5.2</PackageVersion>
+    <Authors>Adobe Inc.</Authors>
+    <Owners>Adobe Inc.</Owners>
+    <Description>Adobe Experience Platform - Core plugin for Xamarin Android.</Description>
+    <Copyright>Copyright 2020 Adobe All Rights Reserved. NOTICE: Adobe permits you to use, modify, and distribute this file in accordance with the terms of the Adobe license agreement accompanying it.If you have received this file from a source other than Adobe, then your use, modification, or distribution of it requires the prior written permission of Adobe. This file has been modified from its original form.The original license can be viewed in the NOTICES.txt file.</Copyright>
+    <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
+    <Summary>Adobe Experience Platform - Core plugin for Xamarin Android.</Summary>
+    <Title>ACPCore</Title>
+    <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,6 +38,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PackageOutputPath>bin\Debug\</PackageOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>portable</DebugType>
@@ -35,6 +47,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PackageOutputPath>bin\Release\</PackageOutputPath>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -57,7 +71,14 @@
   <ItemGroup>
     <LibraryProjectZip Include="Jars\core-1.5.2.aar" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.Bindings.targets" />
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Tasks.Pack">
+      <Version>5.6.0-preview.2.6489</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
