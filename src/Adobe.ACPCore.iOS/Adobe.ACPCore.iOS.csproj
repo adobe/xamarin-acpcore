@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{2432F4D0-1B4F-44BF-828F-C5FAF7847894}</ProjectGuid>
+    <TemplateGuid>{b6f3ff35-79b2-4f25-a2fc-60a7cf61013b}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Com.Adobe.Marketing.Mobile</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>ACPCore</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <PackageId>Adobe.ACPCore.iOS</PackageId>
+    <PackageVersion>2.6.1</PackageVersion>
+    <Authors>Adobe Inc.</Authors>
+    <Owners>Adobe Inc.</Owners>
+    <Title>Adobe.ACPCore.iOS</Title>
+    <Summary>Adobe Experience Platform - Core plugin for Xamarin iOS.</Summary>
+    <Description>Adobe Experience Platform - Core plugin for Xamarin iOS.</Description>
+    <PackOnBuild>true</PackOnBuild>
+    <Copyright>Copyright 2020 Adobe All Rights Reserved. NOTICE: Adobe permits you to use, modify, and distribute this file in accordance with the terms of the Adobe license agreement accompanying it.If you have received this file from a source other than Adobe, then your use, modification, or distribution of it requires the prior written permission of Adobe. This file has been modified from its original form.The original license can be viewed in the NOTICES.txt file.</Copyright>
+    <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Build.Packaging">
+      <Version>0.2.5-dev.8</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="libACPCore_iOS.a">
+      <Kind>Static</Kind>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lsqlite3 -lc++ -lz</LinkerFlags>
+      <Frameworks>UIKit SystemConfiguration WebKit UserNotifications</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="libACPIdentity_iOS.a">
+      <Kind>Static</Kind>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="libACPLifecycle_iOS.a">
+      <Kind>Static</Kind>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="libACPSignal_iOS.a">
+      <Kind>Static</Kind>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="ACPCore.framework">
+      <Kind>Framework</Kind>
+      <ForceLoad>True</ForceLoad>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <IsCxx>True</IsCxx>
+      <Frameworks>UIKit SystemConfiguration WebKit UserNotifications</Frameworks>
+    </NativeReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+</Project>
