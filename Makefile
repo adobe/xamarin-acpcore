@@ -26,7 +26,7 @@ clean-folders:
 
 clean: msbuild-clean clean-folders setup
 
-# Makes ACPCore android bindings and NuGet packages. The android bindings (.dll) will be available in BindingDirectory/bin/Debug
+# Makes ACPCore bindings and NuGet packages. The bindings (.dll) will be available in BindingDirectory/bin/Debug
 # The NuGet packages get created in the same directory but are then moved to src/bin.
 all:
 	cd src/ACPCore.XamarinAndroidBinding/ && msbuild -t:pack
