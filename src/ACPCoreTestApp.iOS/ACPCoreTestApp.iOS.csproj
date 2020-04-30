@@ -122,12 +122,6 @@
     <Reference Include="Xamarin.iOS" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
-    <Reference Include="Adobe.ACPCore.iOS">
-      <HintPath>..\Adobe.ACPCore.iOS\bin\Debug\Adobe.ACPCore.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="ACPCoreTestApp">
-      <HintPath>..\ACPCoreTestApp\bin\Debug\netstandard2.0\ACPCoreTestApp.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
@@ -135,6 +129,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACPCoreTestApp\ACPCoreTestApp.csproj">
+      <Project>{67520923-6DBA-4406-8C34-8D40B814D16C}</Project>
+      <Name>ACPCoreTestApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adobe.ACPCore.iOS\Adobe.ACPCore.iOS.csproj">
+      <Project>{2432F4D0-1B4F-44BF-828F-C5FAF7847894}</Project>
+      <Name>Adobe.ACPCore.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

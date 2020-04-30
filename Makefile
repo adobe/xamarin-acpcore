@@ -11,17 +11,17 @@ msbuild-clean:
 	cd src && msbuild -t:clean
 
 clean-folders:
-	cd src/ACPCore.XamarinAndroidBinding/ && rm -rf obj
-	cd src/ACPCore.XamarinAndroidBinding/bin && rm -rf Debug
-	cd src/ACPIdentity.XamarinAndroidBinding/ && rm -rf obj
-	cd src/ACPIdentity.XamarinAndroidBinding/bin && rm -rf Debug
-	cd src/ACPLifecycle.XamarinAndroidBinding/ && rm -rf obj
-	cd src/ACPLifecycle.XamarinAndroidBinding/bin && rm -rf Debug
-	cd src/ACPSignal.XamarinAndroidBinding/ && rm -rf obj
-	cd src/ACPSignal.XamarinAndroidBinding/bin && rm -rf Debug
-	cd src/ACPSignal.XamarinAndroidBinding/ && rm -rf obj
-	cd src/Adobe.ACPCore.iOS/bin/ && rm -rf Debug
-	cd src/Adobe.ACPCore.iOS/ && rm -rf obj
+	rm -rf src/ACPCore.XamarinAndroidBinding/obj
+	rm -rf src/ACPCore.XamarinAndroidBinding/bin/Debug
+	rm -rf src/ACPIdentity.XamarinAndroidBinding/obj
+	rm -rf src/ACPIdentity.XamarinAndroidBinding/bin/Debug
+	rm -rf src/ACPLifecycle.XamarinAndroidBinding/obj
+	rm -rf src/ACPLifecycle.XamarinAndroidBinding/bin/Debug
+	rm -rf src/ACPSignal.XamarinAndroidBinding/obj
+	rm -rf src/ACPSignal.XamarinAndroidBinding/bin/Debug
+	rm -rf src/ACPSignal.XamarinAndroidBinding/obj
+	rm -rf src/Adobe.ACPCore.iOS/bin/Debug
+	rm -rf src/Adobe.ACPCore.iOS/obj
 	rm -rf bin
 
 clean: msbuild-clean clean-folders setup

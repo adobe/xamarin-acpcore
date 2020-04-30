@@ -54,9 +54,6 @@
     <Reference Include="Mono.Android" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Adobe.ACPCore.Android">
-      <HintPath>..\ACPCore.XamarinAndroidBinding\bin\Debug\Adobe.ACPCore.Android.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +76,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACPCore.XamarinAndroidBinding\ACPCore.XamarinAndroidBinding.csproj">
+      <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
+      <Name>ACPCore.XamarinAndroidBinding</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

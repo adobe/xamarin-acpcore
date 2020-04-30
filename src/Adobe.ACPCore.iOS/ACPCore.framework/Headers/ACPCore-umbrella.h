@@ -22,7 +22,3 @@
 #import "ACPMobileVisitorId.h"
 #import "ACPNetworkServiceOverrider.h"
 #import "ACPSignal.h"
-
-FOUNDATION_EXPORT double ACPCoreVersionNumber;
-FOUNDATION_EXPORT const unsigned char ACPCoreVersionString[];
-
