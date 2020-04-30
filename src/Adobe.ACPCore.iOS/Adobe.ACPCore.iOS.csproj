@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Com.Adobe.Marketing.Mobile</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>ACPCore</AssemblyName>
+    <AssemblyName>Adobe.ACPCore.iOS</AssemblyName>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>Adobe.ACPCore.iOS</PackageId>
     <PackageVersion>2.6.1</PackageVersion>

@@ -11,14 +11,14 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ACPIdentity.XamarinAndroidBinding</RootNamespace>
-    <AssemblyName>ACPIdentity.XamarinAndroidBinding</AssemblyName>
+    <AssemblyName>Adobe.ACPIdentity.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <Deterministic>True</Deterministic>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <PackageId>ACPIdentity.XamarinAndroid</PackageId>
+    <PackageId>Adobe.ACPIdentity.Android</PackageId>
     <PackageVersion>1.2.0</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Owners>Adobe Inc.</Owners>
@@ -28,7 +28,7 @@
     <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackOnBuild>true</PackOnBuild>
-    <Title>ACPIdentity.XamarinAndroid</Title>
+    <Title>Adobe.ACPIdentity.Android</Title>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +54,9 @@
     <Reference Include="Mono.Android" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="Adobe.ACPCore.Android">
+      <HintPath>..\ACPCore.XamarinAndroidBinding\bin\Debug\Adobe.ACPCore.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,12 +79,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ACPCore.XamarinAndroidBinding\ACPCore.XamarinAndroidBinding.csproj">
-      <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
-      <Name>ACPCore.XamarinAndroidBinding</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

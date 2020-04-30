@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ACPCoreTestApp.MainPage">
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="20,35,20,20">
+                <!--ACPCore methods-->
+                <Button Text="ACPCore Extension Version" BackgroundColor="LightGray" Clicked="OnCoreExtensionVersionButtonClicked"/>
+                <Button Text="Dispatch Event" BackgroundColor="LightGray" Clicked="OnDispatchEventButtonClicked"/>
+                <Button Text="Dispatch Event With Response Callback" BackgroundColor="LightGray" Clicked="OnDispatchEventWithResponseCallbackButtonClicked"/>
+                <Button Text="Dispatch Response Event" BackgroundColor="LightGray" Clicked="OnDispatchResponseEventButtonClicked"/>
+                <Button Text="Get Privacy Status" BackgroundColor="LightGray" Clicked="OnGetPrivacyStatusButtonClicked"/>
+                <Button Text="Get SDK Identities" BackgroundColor="LightGray" Clicked="OnGetSDKIdentitiesButtonClicked"/>
+                <Button Text="Set Advertising Identifier" BackgroundColor="LightGray" Clicked="OnSetAdvertisingIdentifierButtonClicked"/>
+                <Button Text="Set Log Level" BackgroundColor="LightGray" Clicked="OnSetLogLevelButtonClicked"/>
+                <Button Text="Set Privacy Status" BackgroundColor="LightGray" Clicked="OnSetPrivacyStatusButtonClicked"/>
+                <Button Text="Track Action" BackgroundColor="LightGray" Clicked="OnTrackActionButtonClicked"/>
+                <Button Text="Track State" BackgroundColor="LightGray" Clicked="OnTrackStateButtonClicked"/>
+                <Button Text="Update Configuration" BackgroundColor="LightGray" Clicked="OnUpdateConfigurationButtonClicked"/>
+                <!--ACPIdentity methods-->
+                <Button Text="ACPIdentity Extension Version" BackgroundColor="LightGray" Clicked="OnIdentityExtensionVersionButtonClicked"/>
+                <Button Text="Append Visitor Information" BackgroundColor="LightGray" Clicked="OnAppendVisitorInformationButtonClicked"/>
+                <Button Text="Get Experience Cloud Id" BackgroundColor="LightGray" Clicked="OnGetExperienceCloudIdButtonClicked"/>
+                <Button Text="Get Identifiers" BackgroundColor="LightGray" Clicked="OnGetIdentifiersButtonClicked"/>
+                <Button Text="Get URL Variables" BackgroundColor="LightGray" Clicked="OnGetURLVariablesButtonClicked"/>
+                <Button Text="Sync Identifier" BackgroundColor="LightGray" Clicked="OnSyncIdentifierButtonClicked"/>
+                <Button Text="Sync Identifiers" BackgroundColor="LightGray" Clicked="OnSyncIdentifiersButtonClicked"/>
+                <Button Text="Sync Identifier with Auth State" BackgroundColor="LightGray" Clicked="OnSyncIdentifiersWithAuthStateButtonClicked"/>
+                <!--ACPLifecycle methods-->
+                <Button Text="ACPLifecycle Extension Version" BackgroundColor="LightGray" Clicked="OnLifecycleExtensionVersionButtonClicked"/>
+                <!--ACPSignal methods-->
+                <Button Text="ACPSignal Extension Version" BackgroundColor="LightGray" Clicked="OnSignalExtensionVersionButtonClicked"/>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

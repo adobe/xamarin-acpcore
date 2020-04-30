@@ -101,12 +101,12 @@ namespace Com.Adobe.Marketing.Mobile
 		// +(void)trackAction:(NSString * _Nullable)action data:(NSDictionary<NSString *,NSString *> * _Nullable)data;
 		[Static]
 		[Export("trackAction:data:")]
-		void TrackAction([NullAllowed] string action, [NullAllowed] NSDictionary<NSString, NSString> data);
+		void TrackAction([NullAllowed] string action, [NullAllowed] NSMutableDictionary<NSString, NSString> data);
 
 		// +(void)trackState:(NSString * _Nullable)state data:(NSDictionary<NSString *,NSString *> * _Nullable)data;
 		[Static]
 		[Export("trackState:data:")]
-		void TrackState([NullAllowed] string state, [NullAllowed] NSDictionary<NSString, NSString> data);
+		void TrackState([NullAllowed] string state, [NullAllowed] NSMutableDictionary<NSString, NSString> data);
 
 		// +(BOOL)dispatchEvent:(ACPExtensionEvent * _Nonnull)event error:(NSError * _Nullable * _Nullable)error;
 		[Static]
@@ -367,15 +367,6 @@ namespace Com.Adobe.Marketing.Mobile
 		[Export("registerExtension")]
 		void RegisterExtension();
 	}
-
-	//// @interface  (ACPMobileVisitorId)
-	//[BaseType(typeof(ACPMobileVisitorId))]
-	//interface ACPMobileVisitorId_
-	//{
-	//	// -(instancetype)initWithOrigin:(NSString *)idOrigin type:(NSString *)idType id:(NSString *)identifier authentication:(ACPMobileVisitorAuthenticationState)authenticationState;
-	//	[Export("initWithOrigin:type:id:authentication:")]
-	//	IntPtr Constructor(string idOrigin, string idType, string identifier, ACPMobileVisitorAuthenticationState authenticationState);
-	//}
 
 	// @interface ACPHttpConnection : NSObject
 	[BaseType(typeof(NSObject))]
