@@ -31,7 +31,7 @@ namespace ACPCoreTestApp.iOS
             // set log level
             ACPCore.LogLevel = ACPMobileLogLevel.Verbose;
 
-            // register extensions
+            // register SDK extensions
             ACPIdentity.RegisterExtension();
             ACPLifecycle.RegisterExtension();
             ACPSignal.RegisterExtension();
@@ -39,7 +39,7 @@ namespace ACPCoreTestApp.iOS
             // start core
             ACPCore.Start(null);
 
-            // register dependency service
+            // register dependency service to link interface from ACPCoreTestApp base project
             DependencyService.Register<IACPCoreExtensionService, ACPCoreExtensionService>();
             return base.FinishedLaunching(app, options);
         }

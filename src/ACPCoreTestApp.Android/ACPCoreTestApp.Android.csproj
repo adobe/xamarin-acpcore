@@ -51,6 +51,21 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="Adobe.ACPCore.Android">
+      <HintPath>..\ACPCore.XamarinAndroidBinding\bin\Debug\Adobe.ACPCore.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Adobe.ACPIdentity.Android">
+      <HintPath>..\ACPIdentity.XamarinAndroidBinding\bin\Debug\Adobe.ACPIdentity.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Adobe.ACPLifecycle.Android">
+      <HintPath>..\ACPLifecycle.XamarinAndroidBinding\bin\Debug\Adobe.ACPLifecycle.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Adobe.ACPSignal.Android">
+      <HintPath>..\ACPSignal.XamarinAndroidBinding\bin\Debug\Adobe.ACPSignal.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="ACPCoreTestApp">
+      <HintPath>..\ACPCoreTestApp\bin\Debug\netstandard2.0\ACPCoreTestApp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
@@ -60,6 +75,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ACPCoreExtensionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -86,12 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ACPCoreTestApp\ACPCoreTestApp.csproj">
-      <Project>{67520923-6DBA-4406-8C34-8D40B814D16C}</Project>
-      <Name>ACPCoreTestApp</Name>
-    </ProjectReference>
+    <Folder Include="Services\" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
