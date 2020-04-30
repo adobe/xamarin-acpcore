@@ -343,3 +343,5 @@ src/ACPLifecycle.XamarinAndroidBinding/Additions/AboutAdditions.txt
 src/ACPLifecycle.XamarinAndroidBinding/Jars/AboutJars.txt
 src/ACPSignal.XamarinAndroidBinding/Additions/AboutAdditions.txt
 src/ACPSignal.XamarinAndroidBinding/Jars/AboutJars.txt
+src/ACPCoreTestApp.Android/Additions/AboutAdditions.txt
+src/ACPCoreTestApp.Android/Resources/AboutResources.txt

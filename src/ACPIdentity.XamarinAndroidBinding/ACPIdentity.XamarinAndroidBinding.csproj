@@ -11,14 +11,14 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ACPIdentity.XamarinAndroidBinding</RootNamespace>
-    <AssemblyName>ACPIdentity.XamarinAndroidBinding</AssemblyName>
+    <AssemblyName>Adobe.ACPIdentity.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <Deterministic>True</Deterministic>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <PackageId>ACPIdentity.XamarinAndroid</PackageId>
+    <PackageId>Adobe.ACPIdentity.Android</PackageId>
     <PackageVersion>1.2.0</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Owners>Adobe Inc.</Owners>
@@ -28,7 +28,7 @@
     <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackOnBuild>true</PackOnBuild>
-    <Title>ACPIdentity.XamarinAndroid</Title>
+    <Title>Adobe.ACPIdentity.Android</Title>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
