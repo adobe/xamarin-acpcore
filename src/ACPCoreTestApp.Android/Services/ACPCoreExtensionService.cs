@@ -53,11 +53,19 @@ namespace ACPCoreTestApp.Droid
             return stringOutput;
         }
 
+        public TaskCompletionSource<string> DownloadRules()
+        {
+            // TODO: this method is not implemented on Android
+            stringOutput = new TaskCompletionSource<string>();
+            stringOutput.SetResult("");
+            return stringOutput;
+        }
+
         public TaskCompletionSource<string> GetPrivacyStatus()
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.GetPrivacyStatus(new StringCallback());
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -65,7 +73,7 @@ namespace ACPCoreTestApp.Droid
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.GetSdkIdentities(new StringCallback());
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -73,7 +81,7 @@ namespace ACPCoreTestApp.Droid
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.SetAdvertisingIdentifier("testAdvertisingIdentifier");
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -81,7 +89,7 @@ namespace ACPCoreTestApp.Droid
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.LogLevel = LoggingMode.Verbose;
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -89,7 +97,7 @@ namespace ACPCoreTestApp.Droid
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.SetPrivacyStatus(MobilePrivacyStatus.OptIn);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -99,7 +107,7 @@ namespace ACPCoreTestApp.Droid
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("key", "value");
             ACPCore.TrackAction("action", data);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -109,7 +117,7 @@ namespace ACPCoreTestApp.Droid
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("key", "value");
             ACPCore.TrackState("state", data);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -119,7 +127,7 @@ namespace ACPCoreTestApp.Droid
             Dictionary<string, Java.Lang.Object> config = new Dictionary<string, Java.Lang.Object>();
             config.Add("someConfigKey", "configValue");
             ACPCore.UpdateConfiguration(config);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -155,7 +163,7 @@ namespace ACPCoreTestApp.Droid
             return stringOutput;
         }
 
-        public TaskCompletionSource<string> GetURLVariables()
+        public TaskCompletionSource<string> GetUrlVariables()
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPIdentity.GetUrlVariables(new StringCallback());
@@ -167,8 +175,7 @@ namespace ACPCoreTestApp.Droid
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPIdentity.SyncIdentifier("name", "john", VisitorID.AuthenticationState.Authenticated); 
-            stringOutput.SetResult(" completed");
-
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -180,8 +187,7 @@ namespace ACPCoreTestApp.Droid
             ids.Add("age", "38");
             ids.Add("zipcode", "94403");
             ACPIdentity.SyncIdentifiers(ids);
-            stringOutput.SetResult(" completed");
-
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -193,7 +199,7 @@ namespace ACPCoreTestApp.Droid
             ids.Add("age", "38");
             ids.Add("zipcode", "94403");
             ACPIdentity.SyncIdentifiers(ids, VisitorID.AuthenticationState.LoggedOut);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 

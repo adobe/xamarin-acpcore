@@ -43,6 +43,12 @@ namespace ACPCoreTestApp
 
         }
 
+        void OnDownloadRulesButtonClicked(object sender, EventArgs args)
+        {
+            string result = DependencyService.Get<IACPCoreExtensionService>().DownloadRules().Task.Result;
+            handleStringResult("DownloadRules", result);
+        }
+
         void OnGetPrivacyStatusButtonClicked(object sender, EventArgs args)
         {
             string result = DependencyService.Get<IACPCoreExtensionService>().GetPrivacyStatus().Task.Result;
@@ -118,8 +124,8 @@ namespace ACPCoreTestApp
 
         void OnGetURLVariablesButtonClicked(object sender, EventArgs args)
         {
-            string result = DependencyService.Get<IACPCoreExtensionService>().GetURLVariables().Task.Result;
-            handleStringResult("GetURLVariables", result);
+            string result = DependencyService.Get<IACPCoreExtensionService>().GetUrlVariables().Task.Result;
+            handleStringResult("GetUrlVariables", result);
         }
 
         void OnSyncIdentifierButtonClicked(object sender, EventArgs args)
