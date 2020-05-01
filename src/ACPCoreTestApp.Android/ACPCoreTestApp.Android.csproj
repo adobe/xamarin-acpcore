@@ -89,25 +89,25 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ACPCore.XamarinAndroidBinding\ACPCore.XamarinAndroidBinding.csproj">
-      <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
-      <Name>ACPCore.XamarinAndroidBinding</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ACPCoreTestApp\ACPCoreTestApp.csproj">
       <Project>{67520923-6DBA-4406-8C34-8D40B814D16C}</Project>
       <Name>ACPCoreTestApp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ACPIdentity.XamarinAndroidBinding\ACPIdentity.XamarinAndroidBinding.csproj">
+    <ProjectReference Include="..\Adobe.ACPCore.Android\Adobe.ACPCore.Android.csproj">
+      <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
+      <Name>Adobe.ACPCore.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adobe.ACPIdentity.Android\Adobe.ACPIdentity.Android.csproj">
       <Project>{913C9259-779D-4CC5-B6EB-3B5CDD4EB17A}</Project>
-      <Name>ACPIdentity.XamarinAndroidBinding</Name>
+      <Name>Adobe.ACPIdentity.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ACPLifecycle.XamarinAndroidBinding\ACPLifecycle.XamarinAndroidBinding.csproj">
+    <ProjectReference Include="..\Adobe.ACPLifecycle.Android\Adobe.ACPLifecycle.Android.csproj">
       <Project>{A43A9090-B843-42A3-AF83-C3E67CD47C55}</Project>
-      <Name>ACPLifecycle.XamarinAndroidBinding</Name>
+      <Name>Adobe.ACPLifecycle.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ACPSignal.XamarinAndroidBinding\ACPSIgnal.XamarinAndroidBinding.csproj">
+    <ProjectReference Include="..\Adobe.ACPSignal.Android\Adobe.ACPSignal.Android.csproj">
       <Project>{51C286CB-0E5D-473A-B94F-9F65B08153F7}</Project>
-      <Name>ACPSIgnal.XamarinAndroidBinding</Name>
+      <Name>Adobe.ACPSignal.Android</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

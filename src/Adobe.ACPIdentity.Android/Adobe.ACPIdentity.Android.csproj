@@ -10,7 +10,7 @@
     <TemplateGuid>{77efb91c-a7e9-4b0e-a7c5-31eeec3c6d46}</TemplateGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ACPIdentity.XamarinAndroidBinding</RootNamespace>
+    <RootNamespace>Adobe.ACPIdentity.Android</RootNamespace>
     <AssemblyName>Adobe.ACPIdentity.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <Deterministic>True</Deterministic>
@@ -29,12 +29,13 @@
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackOnBuild>true</PackOnBuild>
     <Title>Adobe.ACPIdentity.Android</Title>
+    <BaseDirectory>..\Adobe.ACPIdentity.Android</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Adobe.ACPIdentity.Android\bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,7 +44,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Adobe.ACPIdentity.Android\bin\Release</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -78,9 +79,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ACPCore.XamarinAndroidBinding\ACPCore.XamarinAndroidBinding.csproj">
+    <ProjectReference Include="..\Adobe.ACPCore.Android\Adobe.ACPCore.Android.csproj">
       <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
-      <Name>ACPCore.XamarinAndroidBinding</Name>
+      <Name>Adobe.ACPCore.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />

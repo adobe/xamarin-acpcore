@@ -29,12 +29,13 @@
     <Summary>Adobe Experience Platform - Lifecycle plugin for Xamarin Android.</Summary>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
+    <BaseDirectory>..\Adobe.ACPLifecycle.Android</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Adobe.ACPLifecycle.Android\bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -43,7 +44,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\Adobe.ACPLifecycle.Android\bin\Release</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -78,9 +79,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ACPCore.XamarinAndroidBinding\ACPCore.XamarinAndroidBinding.csproj">
+    <ProjectReference Include="..\Adobe.ACPCore.Android\Adobe.ACPCore.Android.csproj">
       <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
-      <Name>ACPCore.XamarinAndroidBinding</Name>
+      <Name>Adobe.ACPCore.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />
