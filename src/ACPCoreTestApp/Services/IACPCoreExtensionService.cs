@@ -10,6 +10,7 @@ namespace ACPCoreTestApp
         TaskCompletionSource<string> DispatchEvent();
         TaskCompletionSource<string> DispatchEventWithResponseCallback();
         TaskCompletionSource<string> DispatchResponseEvent();
+        TaskCompletionSource<string> DownloadRules();
         TaskCompletionSource<string> GetPrivacyStatus();
         TaskCompletionSource<string> GetSDKIdentities();
         TaskCompletionSource<string> SetAdvertisingIdentifier();
@@ -23,7 +24,7 @@ namespace ACPCoreTestApp
         TaskCompletionSource<string> AppendVisitorInfoForUrl();
         TaskCompletionSource<string> GetExperienceCloudId();
         TaskCompletionSource<string> GetIdentifiers();
-        TaskCompletionSource<string> GetURLVariables();
+        TaskCompletionSource<string> GetUrlVariables();
         TaskCompletionSource<string> SyncIdentifier();
         TaskCompletionSource<string> SyncIdentifiers();
         TaskCompletionSource<string> SyncIdentifiersWithAuthState();

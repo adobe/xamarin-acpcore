@@ -75,12 +75,20 @@ namespace ACPCoreTestApp.iOS
             return stringOutput;
         }
 
+        public TaskCompletionSource<string> DownloadRules()
+        {
+            stringOutput = new TaskCompletionSource<string>();
+            ACPCore.DownloadRules();
+            stringOutput.SetResult("completed");
+            return stringOutput;
+        }
+
         public TaskCompletionSource<string> GetPrivacyStatus()
         {
             stringOutput = new TaskCompletionSource<string>();
             Action<ACPMobilePrivacyStatus> callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
             ACPCore.GetPrivacyStatus(callback);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -89,7 +97,7 @@ namespace ACPCoreTestApp.iOS
             stringOutput = new TaskCompletionSource<string>();
             Action<NSString> callback = new Action<NSString>(handleCallback);
             ACPCore.GetSdkIdentities(callback);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -97,7 +105,7 @@ namespace ACPCoreTestApp.iOS
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.SetAdvertisingIdentifier("testAdvertisingIdentifier");
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -105,7 +113,7 @@ namespace ACPCoreTestApp.iOS
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.LogLevel = ACPMobileLogLevel.Verbose;
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -113,7 +121,7 @@ namespace ACPCoreTestApp.iOS
         {
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.SetPrivacyStatus(ACPMobilePrivacyStatus.OptIn);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -125,7 +133,7 @@ namespace ACPCoreTestApp.iOS
                 ["key"] = new NSString("value")
             };
             ACPCore.TrackAction("action", data);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -137,7 +145,7 @@ namespace ACPCoreTestApp.iOS
                 ["key"] = new NSString("value")
             };
             ACPCore.TrackState("state", data);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -149,7 +157,7 @@ namespace ACPCoreTestApp.iOS
                 ["someConfigKey"] = new NSString("configValue")
             };
             ACPCore.UpdateConfiguration(config);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -189,7 +197,7 @@ namespace ACPCoreTestApp.iOS
             return stringOutput;
         }
 
-        public TaskCompletionSource<string> GetURLVariables()
+        public TaskCompletionSource<string> GetUrlVariables()
         {
             stringOutput = new TaskCompletionSource<string>();
             Action<NSString> callback = new Action<NSString> (handleCallback);
@@ -203,8 +211,7 @@ namespace ACPCoreTestApp.iOS
             stringOutput = new TaskCompletionSource<string>();
             Action<NSString> callback = new Action<NSString>(handleCallback);
             ACPIdentity.SyncIdentifier("name", "john", ACPMobileVisitorAuthenticationState.Authenticated);
-            stringOutput.SetResult(" completed");
-
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -218,8 +225,7 @@ namespace ACPCoreTestApp.iOS
                 ["zipcode"] = new NSString("94403")
             };
             ACPIdentity.SyncIdentifiers(ids);
-            stringOutput.SetResult(" completed");
-
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 
@@ -233,7 +239,7 @@ namespace ACPCoreTestApp.iOS
                 ["zipcode"] = new NSString("94403")
             };
             ACPIdentity.SyncIdentifiers(ids, ACPMobileVisitorAuthenticationState.LoggedOut);
-            stringOutput.SetResult(" completed");
+            stringOutput.SetResult("completed");
             return stringOutput;
         }
 

@@ -8,6 +8,7 @@
                 <Button Text="Dispatch Event" BackgroundColor="LightGray" Clicked="OnDispatchEventButtonClicked"/>
                 <Button Text="Dispatch Event With Response Callback" BackgroundColor="LightGray" Clicked="OnDispatchEventWithResponseCallbackButtonClicked"/>
                 <Button Text="Dispatch Response Event" BackgroundColor="LightGray" Clicked="OnDispatchResponseEventButtonClicked"/>
+                <Button Text="Download Rules" BackgroundColor="LightGray" Clicked="OnDownloadRulesButtonClicked"/>
                 <Button Text="Get Privacy Status" BackgroundColor="LightGray" Clicked="OnGetPrivacyStatusButtonClicked"/>
                 <Button Text="Get SDK Identities" BackgroundColor="LightGray" Clicked="OnGetSDKIdentitiesButtonClicked"/>
                 <Button Text="Set Advertising Identifier" BackgroundColor="LightGray" Clicked="OnSetAdvertisingIdentifierButtonClicked"/>
