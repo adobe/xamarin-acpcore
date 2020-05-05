@@ -1,13 +1,13 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPCore.XamarinAndroidBinding", "ACPCore.XamarinAndroidBinding\ACPCore.XamarinAndroidBinding.csproj", "{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adobe.ACPCore.Android", "Adobe.ACPCore.Android\Adobe.ACPCore.Android.csproj", "{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPIdentity.XamarinAndroidBinding", "ACPIdentity.XamarinAndroidBinding\ACPIdentity.XamarinAndroidBinding.csproj", "{913C9259-779D-4CC5-B6EB-3B5CDD4EB17A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adobe.ACPIdentity.Android", "Adobe.ACPIdentity.Android\Adobe.ACPIdentity.Android.csproj", "{913C9259-779D-4CC5-B6EB-3B5CDD4EB17A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPLifecycle.XamarinAndroidBinding", "ACPLifecycle.XamarinAndroidBinding\ACPLifecycle.XamarinAndroidBinding.csproj", "{A43A9090-B843-42A3-AF83-C3E67CD47C55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adobe.ACPLifecycle.Android", "Adobe.ACPLifecycle.Android\Adobe.ACPLifecycle.Android.csproj", "{A43A9090-B843-42A3-AF83-C3E67CD47C55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPSignal.XamarinAndroidBinding", "ACPSignal.XamarinAndroidBinding\ACPSIgnal.XamarinAndroidBinding.csproj", "{51C286CB-0E5D-473A-B94F-9F65B08153F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adobe.ACPSignal.Android", "Adobe.ACPSignal.Android\Adobe.ACPSignal.Android.csproj", "{51C286CB-0E5D-473A-B94F-9F65B08153F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adobe.ACPCore.iOS", "Adobe.ACPCore.iOS\Adobe.ACPCore.iOS.csproj", "{2432F4D0-1B4F-44BF-828F-C5FAF7847894}"
 EndProject

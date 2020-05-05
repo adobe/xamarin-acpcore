@@ -335,13 +335,13 @@ ASALocalRun/
 HelloXamarin/HelloXamarin/Resources/Resource.designer.cs
 
 # Generated .txt "readme" files
-src/ACPCore.XamarinAndroidBinding/Additions/AboutAdditions.txt
-src/ACPCore.XamarinAndroidBinding/Jars/AboutJars.txt
-src/ACPIdentity.XamarinAndroidBinding/Additions/AboutAdditions.txt
-src/ACPIdentity.XamarinAndroidBinding/Jars/AboutJars.txt
-src/ACPLifecycle.XamarinAndroidBinding/Additions/AboutAdditions.txt
-src/ACPLifecycle.XamarinAndroidBinding/Jars/AboutJars.txt
-src/ACPSignal.XamarinAndroidBinding/Additions/AboutAdditions.txt
-src/ACPSignal.XamarinAndroidBinding/Jars/AboutJars.txt
+src/Adobe.ACPCore.Android/Additions/AboutAdditions.txt
+src/Adobe.ACPCore.Android/Jars/AboutJars.txt
+src/Adobe.ACPIdentity.Android/Additions/AboutAdditions.txt
+src/Adobe.ACPIdentity.Android/Jars/AboutJars.txt
+src/Adobe.ACPLifecycle.Android/Additions/AboutAdditions.txt
+src/Adobe.ACPLifecycle.Android/Jars/AboutJars.txt
+src/Adobe.ACPSignal.Android/Additions/AboutAdditions.txt
+src/Adobe.ACPSignal.Android/Jars/AboutJars.txt
 src/ACPCoreTestApp.Android/Additions/AboutAdditions.txt
 src/ACPCoreTestApp.Android/Resources/AboutResources.txt
