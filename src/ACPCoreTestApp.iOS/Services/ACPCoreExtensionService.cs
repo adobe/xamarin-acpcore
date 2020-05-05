@@ -209,7 +209,6 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> SyncIdentifier()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<NSString> callback = new Action<NSString>(handleCallback);
             ACPIdentity.SyncIdentifier("name", "john", ACPMobileVisitorAuthenticationState.Authenticated);
             stringOutput.SetResult("completed");
             return stringOutput;
