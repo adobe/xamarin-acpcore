@@ -13,17 +13,31 @@
 
 ## Prerequisites
 
-Xamarin development requires the installation of [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/).
+Xamarin development requires the installation of [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/). An Apple developer account and the latest version of Xcode (available from the App Store) are required if you are [building an iOS app](https://docs.microsoft.com/en-us/visualstudio/mac/installation?view=vsmac-2019).
 
 ## Installation
 
-# TODO
+# TODO (update after NuGet package is available on nuget.org)
 
-To start using the AEP SDK for Cordova, navigate to the directory of your Cordova app and install the plugin:
+**Package Manager Installation**
+
+TODO
+
+**Manual installation**
+
+A local ACPCore NuGet package can be created via the included Makefile. If building for the first time, run:
+
 ```
-cordova plugin add https://github.com/adobe/cordova-acpgriffon.git
+make setup
 ```
-Check out the documentation for help with APIs
+
+followed by:
+
+```
+make install
+```
+
+The created NuGet packages can be found in the `bin` directory and can be added as reference to a Xamarin project.
 
 ## Usage
 
