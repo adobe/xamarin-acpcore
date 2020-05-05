@@ -57,6 +57,9 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
   global::Xamarin.Forms.Forms.Init();
   LoadApplication(new App());
 
+  // set the wrapper type
+  ACPCore.SetWrapperType(ACPMobileWrapperType.Xamarin);
+  
   // set launch config
   ACPCore.ConfigureWithAppId("yourAppId");
 
@@ -89,6 +92,9 @@ protected override void OnCreate(Bundle savedInstanceState)
 
   global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
   LoadApplication(new App());
+  
+  // set the wrapper type
+  ACPCore.SetWrapperType(WrapperType.Xamarin);
   
   // set launch config
   ACPCore.ConfigureWithAppId("yourAppId");

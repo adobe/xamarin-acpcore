@@ -32,6 +32,10 @@ namespace ACPCoreTestApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            // set the wrapper type
+            ACPCore.SetWrapperType(WrapperType.Xamarin);
+
             // set log level
             ACPCore.LogLevel = LoggingMode.Verbose;
 
