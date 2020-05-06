@@ -957,19 +957,7 @@ public TaskCompletionSource<string> GetExtensionVersionSignal()
 
 ## Running Tests
 
-# TODO
-
-Install cordova-paramedic `https://github.com/apache/cordova-paramedic`
-```bash
-npm install -g cordova-paramedic
-```
-Run the tests
-```
-cordova-paramedic --platform ios --plugin . --verbose
-```
-```
-cordova-paramedic --platform android --plugin . --verbose
-```
+Unit tests are included within the ACPCore binding solution.
 
 ## Sample App
 
