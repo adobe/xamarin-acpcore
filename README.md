@@ -34,7 +34,7 @@ make setup
 followed by:
 
 ```
-make install
+make release
 ```
 
 The created NuGet packages can be found in the `bin` directory and can be added as reference to a Xamarin project.
@@ -1001,7 +1001,7 @@ public TaskCompletionSource<string> GetExtensionVersionSignal()
 
 ##### Running Tests
 
-iOS and Android unit tests are included within the ACPCore binding solution.
+iOS and Android unit tests are included within the ACPCore binding solution. Currently they must be built from within Visual Studio then manually triggered from the unit test app that is deployed to an iOS or Android device.
 
 ## Sample App
 

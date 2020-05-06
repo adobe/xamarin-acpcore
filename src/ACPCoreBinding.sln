@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPCoreTestApp", "ACPCoreTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPCoreiOSUnitTests", "ACPCoreiOSUnitTests\ACPCoreiOSUnitTests.csproj", "{286731AA-BD2A-414D-960D-07E069BE227C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACPCoreAndroidUnitTests", "ACPCoreAndroidUnitTests\ACPCoreAndroidUnitTests.csproj", "{220E4728-DE25-484C-95E8-0F1994690795}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,5 +143,17 @@ Global
 		{286731AA-BD2A-414D-960D-07E069BE227C}.Debug|iPhone.Build.0 = Debug|iPhone
 		{286731AA-BD2A-414D-960D-07E069BE227C}.Release|iPhone.ActiveCfg = Release|iPhone
 		{286731AA-BD2A-414D-960D-07E069BE227C}.Release|iPhone.Build.0 = Release|iPhone
+		{220E4728-DE25-484C-95E8-0F1994690795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{220E4728-DE25-484C-95E8-0F1994690795}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

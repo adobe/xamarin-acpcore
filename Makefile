@@ -28,7 +28,7 @@ clean: msbuild-clean clean-folders setup
 
 # Makes ACPCore bindings and NuGet packages. The bindings (.dll) will be available in BindingDirectory/bin/Debug
 # The NuGet packages get created in the same directory but are then moved to src/bin.
-all:
+release:
 	cd src/Adobe.ACPCore.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPIdentity.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPLifecycle.Android/ && msbuild -t:pack

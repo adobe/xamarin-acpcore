@@ -97,7 +97,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="UnitTestAppDelegate.cs" />
-    <Compile Include="ACPCoreUnitTests.cs" />
+    <Compile Include="ACPCoreiOSUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adobe.ACPCore.iOS\Adobe.ACPCore.iOS.csproj">
@@ -105,5 +105,5 @@
       <Name>Adobe.ACPCore.iOS</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="\Library\Frameworks\Mono.framework\External\xbuild\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

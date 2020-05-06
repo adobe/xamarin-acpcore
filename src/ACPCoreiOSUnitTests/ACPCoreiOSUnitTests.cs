@@ -125,7 +125,7 @@ namespace ACPCoreiOSUnitTests
         [Test]
         public void GetACPIdentityExtensionVersion_Returns_CorrectVersion()
         {
-            //verify
+            // verify
             Assert.True(ACPIdentity.ExtensionVersion == "2.2.1");
         }
 
@@ -134,7 +134,7 @@ namespace ACPCoreiOSUnitTests
         {
             // setup
             CountdownEvent latch = new CountdownEvent(1);
-            //verify
+            // test
             NSUrl url = new NSUrl("https://test.com");
             ACPIdentity.AppendToUrl(url, callback => {
                 var urlString = callback.ToString();
@@ -147,6 +147,7 @@ namespace ACPCoreiOSUnitTests
                 });
                 latch.Wait();
                 latch.Dispose();
+                // verify
                 Assert.True(urlString.Contains(url.ToString()));
                 Assert.True(urlString.Contains(ecid));
                 Assert.True(urlString.Contains(orgid));
@@ -170,13 +171,14 @@ namespace ACPCoreiOSUnitTests
                 ["id5"] = new NSString("value5"),
             };
             ACPIdentity.SyncIdentifiers(ids, ACPMobileVisitorAuthenticationState.LoggedOut);
-            //verify
+            // test
             ACPIdentity.GetIdentifiers(callback => {
                 String visitorIdsString = "";
                 foreach (ACPMobileVisitorId id in callback)
                 {
                     visitorIdsString = visitorIdsString + "[Id: " + id.Identifier + ", Type: " + id.IdType + ", Origin: " + id.IdOrigin + ", Authentication: " + id.AuthenticationState + "]";
                 }
+                // verify
                 Assert.True(visitorIdsString.Contains("[Id: id1, Type: value1, Origin: d_cid_ic, Authentication: Authenticated]"));
                 Assert.True(visitorIdsString.Contains("[Id: id2, Type: value2, Origin: d_cid_ic, Authentication: Unknown]"));
                 Assert.True(visitorIdsString.Contains("[Id: id3, Type: value3, Origin: d_cid_ic, Authentication: Unknown]"));
@@ -190,7 +192,7 @@ namespace ACPCoreiOSUnitTests
         {
             // setup
             CountdownEvent latch = new CountdownEvent(1);
-            //verify
+            // test
             ACPIdentity.GetUrlVariables(callback => {
                 var urlString = callback.ToString();
                 NSString ecid = null;
@@ -202,6 +204,7 @@ namespace ACPCoreiOSUnitTests
                 });
                 latch.Wait();
                 latch.Dispose();
+                // verify
                 Assert.True(urlString.Contains(ecid));
                 Assert.True(urlString.Contains(orgid));
             });
