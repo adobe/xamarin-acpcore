@@ -43,7 +43,7 @@ The created NuGet packages can be found in the `bin` directory and can be added 
 
 ### [Core](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core)
 
-The following usage instructions assume [Xamarin Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) is being used to develop a multiplatform mobile app. Some API calls have differences between iOS and Android. For these cases, the usage example is given for each platform.
+The following usage instructions assume [Xamarin Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) is being used to develop a multiplatform mobile app.
 
 #### Initialization
 
@@ -117,7 +117,18 @@ protected override void OnCreate(Bundle savedInstanceState)
 
 ##### Getting Core version:
 
-**iOS and Android**
+**iOS**
+
+```c#
+public TaskCompletionSource<string> GetExtensionVersionCore()
+{
+  stringOutput = new TaskCompletionSource<string>();
+  stringOutput.SetResult(ACPCore.ExtensionVersion);
+  return stringOutput;
+}
+```
+
+**Android**
 
 ```c#
 public TaskCompletionSource<string> GetExtensionVersionCore()
@@ -566,7 +577,18 @@ public TaskCompletionSource<string> TrackState()
 
 ##### Getting Identity version:
 
-##### **iOS and Android**
+**iOS**
+
+```c#
+public TaskCompletionSource<string> GetExtensionVersionIdentity()
+{
+  stringOutput = new TaskCompletionSource<string>();
+  stringOutput.SetResult(ACPIdentity.ExtensionVersion);
+  return stringOutput;
+}
+```
+
+**Android**
 
 ```c#
 public TaskCompletionSource<string> GetExtensionVersionIdentity()
@@ -884,7 +906,18 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 
 ##### Getting Lifecycle version:
 
-**iOS and Android**
+**iOS**
+
+```c#
+public TaskCompletionSource<string> GetExtensionVersionLifecycle()
+{
+  stringOutput = new TaskCompletionSource<string>();
+  stringOutput.SetResult(ACPLifecycle.ExtensionVersion);
+  return stringOutput;
+}
+```
+
+**Android**
 
 ```c#
 public TaskCompletionSource<string> GetExtensionVersionLifecycle()
@@ -895,7 +928,7 @@ public TaskCompletionSource<string> GetExtensionVersionLifecycle()
 }
 ```
 
-**Starting a Lifecycle session**
+##### Starting a Lifecycle session
 
 **iOS**
 
@@ -944,7 +977,18 @@ public override void OnResignActivation(UIApplication uiApplication)
 
 ##### Getting Signal version:
 
-**iOS and Android**
+**iOS**
+
+```c#
+public TaskCompletionSource<string> GetExtensionVersionSignal()
+{
+  stringOutput = new TaskCompletionSource<string>();
+  stringOutput.SetResult(ACPSignal.ExtensionVersion);
+  return stringOutput;
+}
+```
+
+**Android**
 
 ```c#
 public TaskCompletionSource<string> GetExtensionVersionSignal()
@@ -955,9 +999,9 @@ public TaskCompletionSource<string> GetExtensionVersionSignal()
 }
 ```
 
-## Running Tests
+##### Running Tests
 
-Unit tests are included within the ACPCore binding solution.
+iOS and Android unit tests are included within the ACPCore binding solution.
 
 ## Sample App
 
