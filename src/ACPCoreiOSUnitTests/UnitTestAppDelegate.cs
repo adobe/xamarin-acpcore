@@ -46,6 +46,8 @@ namespace ACPCoreiOSUnitTests
             ACPCore.SetWrapperType(ACPMobileWrapperType.Xamarin);
             ACPCore.LogLevel = ACPMobileLogLevel.Verbose;
             ACPIdentity.RegisterExtension();
+            ACPSignal.RegisterExtension();
+            ACPLifecycle.RegisterExtension();
 
             // start core
             ACPCore.Start(() =>
