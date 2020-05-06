@@ -82,10 +82,13 @@ namespace ACPCoreAndroidUnitTests
         public void SetPrivacyEqualToUnknown_GetPrivacyStatus_Returns_Unknown()
         {
             // setup
+            latch = new CountdownEvent(1);
             string expectedPrivacyStatus = "UNKNOWN";
             ACPCore.SetPrivacyStatus(MobilePrivacyStatus.Unknown);
             // test
             ACPCore.GetPrivacyStatus(new PrivacyStatusCallback());
+            latch.Wait();
+            latch.Dispose();
             // verify
             Assert.True(retrievedPrivacyStatus == expectedPrivacyStatus);
         }
@@ -94,10 +97,13 @@ namespace ACPCoreAndroidUnitTests
         public void SetPrivacyEqualToOptIn_GetPrivacyStatus_Returns_OptIn()
         {
             // setup
+            latch = new CountdownEvent(1);
             string expectedPrivacyStatus = "OPT_IN";
             ACPCore.SetPrivacyStatus(MobilePrivacyStatus.OptIn);
             // test
             ACPCore.GetPrivacyStatus(new PrivacyStatusCallback());
+            latch.Wait();
+            latch.Dispose();
             // verify
             Assert.True(retrievedPrivacyStatus == expectedPrivacyStatus);
         }
@@ -106,10 +112,13 @@ namespace ACPCoreAndroidUnitTests
         public void SetPrivacyEqualToOptOut_GetPrivacyStatus_Returns_OptOut()
         {
             // setup
+            latch = new CountdownEvent(1);
             string expectedPrivacyStatus = "OPT_OUT";
             ACPCore.SetPrivacyStatus(MobilePrivacyStatus.OptOut);
             // test
             ACPCore.GetPrivacyStatus(new PrivacyStatusCallback());
+            latch.Wait();
+            latch.Dispose();
             // verify
             Assert.True(retrievedPrivacyStatus == expectedPrivacyStatus);
         }
@@ -259,6 +268,10 @@ namespace ACPCoreAndroidUnitTests
                 else
                 {
                     Console.WriteLine("null privacy status retrieved");
+                }
+                if (latch != null)
+                {
+                    latch.Signal();
                 }
             }
         }
