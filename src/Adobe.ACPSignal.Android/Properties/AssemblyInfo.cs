@@ -21,5 +21,5 @@ using Android.App;
 //      Major Version
 //      Minor Version 
 //      Patch Version
-[assembly: AssemblyVersion("1.0.3")]
-[assembly: AssemblyFileVersion("1.0.3")]
+[assembly: AssemblyVersion("0.0.1")]
+[assembly: AssemblyFileVersion("0.0.1")]
