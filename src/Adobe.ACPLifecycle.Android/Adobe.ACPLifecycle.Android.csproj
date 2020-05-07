@@ -20,7 +20,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>Adobe.ACPLifecycle.Android</PackageId>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>0.0.1</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Owners>Adobe Inc.</Owners>
     <Title>Adobe.ACPLifecycle.Android</Title>
@@ -29,7 +29,6 @@
     <Summary>Adobe Experience Platform - Lifecycle plugin for Xamarin Android.</Summary>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
-    <BaseDirectory>..\Adobe.ACPLifecycle.Android</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -19,7 +19,7 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>Adobe.ACPSignal.Android</PackageId>
-    <PackageVersion>1.0.3</PackageVersion>
+    <PackageVersion>0.0.1</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Copyright>Copyright 2020 Adobe All Rights Reserved. NOTICE: Adobe permits you to use, modify, and distribute this file in accordance with the terms of the Adobe license agreement accompanying it.If you have received this file from a source other than Adobe, then your use, modification, or distribution of it requires the prior written permission of Adobe. This file has been modified from its original form.The original license can be viewed in the NOTICES.txt file.</Copyright>
     <Owners>Adobe Inc.</Owners>
@@ -29,7 +29,6 @@
     <PackOnBuild>true</PackOnBuild>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE</PackageLicenseUrl>
-    <BaseDirectory>..\Adobe.ACPSignal.Android</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

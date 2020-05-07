@@ -19,7 +19,7 @@
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>Adobe.ACPIdentity.Android</PackageId>
-    <PackageVersion>1.2.0</PackageVersion>
+    <PackageVersion>0.0.1</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Owners>Adobe Inc.</Owners>
     <Summary>Adobe Experience Platform - Identity plugin for Xamarin Android.</Summary>
@@ -29,7 +29,6 @@
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
     <PackOnBuild>true</PackOnBuild>
     <Title>Adobe.ACPIdentity.Android</Title>
-    <BaseDirectory>..\Adobe.ACPIdentity.Android</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
