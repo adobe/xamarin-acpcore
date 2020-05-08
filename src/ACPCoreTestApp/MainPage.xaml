@@ -1,9 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<!--
+    Copyright 2020 Adobe
+    All Rights Reserved.
+    NOTICE: Adobe permits you to use, modify, and distribute this file in
+    accordance with the terms of the Adobe license agreement accompanying
+    it. If you have received this file from a source other than Adobe,
+    then your use, modification, or distribution of it requires the prior
+    written permission of Adobe.
+    This file has been modified from its original form. The original
+    license can be viewed in the NOTICES.txt file.
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ACPCoreTestApp.MainPage">
     <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
         <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
             <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="20,35,20,20">
                 <!--ACPCore methods-->
+                <Label Text="ACPCore" />
                 <Button Text="ACPCore Extension Version" BackgroundColor="LightGray" Clicked="OnCoreExtensionVersionButtonClicked"/>
                 <Button Text="Dispatch Event" BackgroundColor="LightGray" Clicked="OnDispatchEventButtonClicked"/>
                 <Button Text="Dispatch Event With Response Callback" BackgroundColor="LightGray" Clicked="OnDispatchEventWithResponseCallbackButtonClicked"/>
@@ -18,6 +31,7 @@
                 <Button Text="Track State" BackgroundColor="LightGray" Clicked="OnTrackStateButtonClicked"/>
                 <Button Text="Update Configuration" BackgroundColor="LightGray" Clicked="OnUpdateConfigurationButtonClicked"/>
                 <!--ACPIdentity methods-->
+                <Label Text="ACPIdentity" />
                 <Button Text="ACPIdentity Extension Version" BackgroundColor="LightGray" Clicked="OnIdentityExtensionVersionButtonClicked"/>
                 <Button Text="Append Visitor Information" BackgroundColor="LightGray" Clicked="OnAppendVisitorInformationButtonClicked"/>
                 <Button Text="Get Experience Cloud Id" BackgroundColor="LightGray" Clicked="OnGetExperienceCloudIdButtonClicked"/>
@@ -27,8 +41,10 @@
                 <Button Text="Sync Identifiers" BackgroundColor="LightGray" Clicked="OnSyncIdentifiersButtonClicked"/>
                 <Button Text="Sync Identifier with Auth State" BackgroundColor="LightGray" Clicked="OnSyncIdentifiersWithAuthStateButtonClicked"/>
                 <!--ACPLifecycle methods-->
+                <Label Text="ACPLifecycle" />
                 <Button Text="ACPLifecycle Extension Version" BackgroundColor="LightGray" Clicked="OnLifecycleExtensionVersionButtonClicked"/>
                 <!--ACPSignal methods-->
+                <Label Text="ACPSignal" />
                 <Button Text="ACPSignal Extension Version" BackgroundColor="LightGray" Clicked="OnSignalExtensionVersionButtonClicked"/>
             </StackLayout>
         </ScrollView>
