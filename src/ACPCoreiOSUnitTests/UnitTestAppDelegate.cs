@@ -64,7 +64,6 @@ namespace ACPCoreiOSUnitTests
             // start core
             ACPCore.Start(() =>
             {
-                // set config from launch (org: OBUMobile5, app: ryan-xamarin)
                 ACPCore.ConfigureWithAppId("94f571f308d5/00fc543a60e1/launch-c861fab912f7-development");
                 latch.Signal();
             });

@@ -32,7 +32,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPCoreExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPCore.ExtensionVersion == "2.6.1-XM");
+            Assert.That(ACPCore.ExtensionVersion, Is.EqualTo("2.6.1-XM"));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace ACPCoreiOSUnitTests
             // test
             var status = ACPCore.DispatchEvent(sdkEvent, out _);
             // verify
-            Assert.True(status);
+            Assert.That(status, Is.EqualTo(true));
         }
 
         [Test]
@@ -69,7 +69,7 @@ namespace ACPCoreiOSUnitTests
             latch.Wait(500);
             latch.Dispose();
             // verify
-            Assert.True(status);
+            Assert.That(status, Is.EqualTo(true));
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace ACPCoreiOSUnitTests
             // test
             var status = ACPCore.DispatchResponseEvent(responseEvent, requestEvent, out error);
             // verify
-            Assert.True(status);
+            Assert.That(status, Is.EqualTo(true));
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace ACPCoreiOSUnitTests
             ACPCore.SetPrivacyStatus(ACPMobilePrivacyStatus.Unknown);
             // test and verify
             ACPCore.GetPrivacyStatus(callback => {
-                Assert.True(callback.ToString().Equals("Unknown"));
+                Assert.That(callback.ToString, Is.EqualTo("Unknown"));
             });
         }
 
@@ -107,7 +107,7 @@ namespace ACPCoreiOSUnitTests
             ACPCore.SetPrivacyStatus(ACPMobilePrivacyStatus.OptIn);
             // test and verify
             ACPCore.GetPrivacyStatus(callback => {
-                Assert.True(callback.ToString().Equals("OptIn"));
+                Assert.That(callback.ToString, Is.EqualTo("OptIn"));
             });
         }
 
@@ -118,7 +118,7 @@ namespace ACPCoreiOSUnitTests
             ACPCore.SetPrivacyStatus(ACPMobilePrivacyStatus.OptOut);
             // test and verify
             ACPCore.GetPrivacyStatus(callback => {
-                Assert.True(callback.ToString().Equals("OptOut"));
+                Assert.That(callback.ToString, Is.EqualTo("OptOut"));
             });
         }
 
@@ -127,7 +127,7 @@ namespace ACPCoreiOSUnitTests
         {
             // verify
             ACPCore.GetSdkIdentities(callback => {
-                Assert.True(callback.Length > 0);
+                Assert.That(callback.ToString().Length, Is.GreaterThan(0));
             });
         }
 
@@ -136,38 +136,44 @@ namespace ACPCoreiOSUnitTests
         public void GetACPIdentityExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPIdentity.ExtensionVersion == "2.2.1");
+            Assert.That(ACPIdentity.ExtensionVersion, Is.EqualTo("2.2.1"));
         }
 
         [Test]
         public void TestAppendVisitorInfoForUrl_Returns_AppendedUrl()
         {
             // setup
-            CountdownEvent latch = new CountdownEvent(1);
-            // test
+            Thread.Sleep(1000);
+            CountdownEvent latch = new CountdownEvent(2);
+            string urlString = null;
+            string ecid = null;
+            string orgid = new NSString("972C898555E9F7BC7F000101%40AdobeOrg");
             NSUrl url = new NSUrl("https://test.com");
-            ACPIdentity.AppendToUrl(url, callback => {
-                var urlString = callback.ToString();
-                NSString ecid = null;
-                NSString orgid = new NSString("972C898555E9F7BC7F000101%40AdobeOrg");
-                ACPIdentity.GetExperienceCloudId(ecidCallback =>
-                {
-                    ecid = ecidCallback;
+            // test
+            ACPIdentity.GetExperienceCloudId(ecidCallback =>
+            {
+                ecid = ecidCallback.ToString();
+                latch.Signal();
+                ACPIdentity.AppendToUrl(url, callback => {
+                    urlString = callback.ToString();
                     latch.Signal();
+
                 });
-                latch.Wait();
-                latch.Dispose();
-                // verify
-                Assert.True(urlString.Contains(url.ToString()));
-                Assert.True(urlString.Contains(ecid));
-                Assert.True(urlString.Contains(orgid));
             });
+            latch.Wait();
+            latch.Dispose();
+            // verify
+            Assert.That(urlString, Is.StringContaining(url.ToString()));
+            Assert.That(urlString, Is.StringContaining(ecid));
+            Assert.That(urlString, Is.StringContaining(orgid));
         }
 
         [Test]
         public void TestGetIdentifiers_Returns_SyncedIdentifiers()
         {
             // setup
+            CountdownEvent latch = new CountdownEvent(1);
+            string visitorIdsString = "";
             ACPIdentity.SyncIdentifier("id1", "value1", ACPMobileVisitorAuthenticationState.Authenticated);
             var ids = new NSMutableDictionary<NSString, NSObject>
             {
@@ -180,44 +186,50 @@ namespace ACPCoreiOSUnitTests
                 ["id4"] = new NSString("value4"),
                 ["id5"] = new NSString("value5"),
             };
-            ACPIdentity.SyncIdentifiers(ids, ACPMobileVisitorAuthenticationState.LoggedOut);
+            ACPIdentity.SyncIdentifiers(ids2, ACPMobileVisitorAuthenticationState.LoggedOut);
             // test
             ACPIdentity.GetIdentifiers(callback => {
-                String visitorIdsString = "";
                 foreach (ACPMobileVisitorId id in callback)
                 {
                     visitorIdsString = visitorIdsString + "[Id: " + id.Identifier + ", Type: " + id.IdType + ", Origin: " + id.IdOrigin + ", Authentication: " + id.AuthenticationState + "]";
                 }
-                // verify
-                Assert.True(visitorIdsString.Contains("[Id: id1, Type: value1, Origin: d_cid_ic, Authentication: Authenticated]"));
-                Assert.True(visitorIdsString.Contains("[Id: id2, Type: value2, Origin: d_cid_ic, Authentication: Unknown]"));
-                Assert.True(visitorIdsString.Contains("[Id: id3, Type: value3, Origin: d_cid_ic, Authentication: Unknown]"));
-                Assert.True(visitorIdsString.Contains("[Id: id4, Type: value4, Origin: d_cid_ic, Authentication: LoggedOut]"));
-                Assert.True(visitorIdsString.Contains("[Id: id5, Type: value5, Origin: d_cid_ic, Authentication: LoggedOut]"));
+                latch.Signal();
             });
+            latch.Wait();
+            latch.Dispose();
+            // verify
+            Assert.That(visitorIdsString, Is.StringContaining("[Id: value1, Type: id1, Origin: d_cid_ic, Authentication: Authenticated]"));
+            Assert.That(visitorIdsString, Is.StringContaining("[Id: value2, Type: id2, Origin: d_cid_ic, Authentication: Unknown]"));
+            Assert.That(visitorIdsString, Is.StringContaining("[Id: value3, Type: id3, Origin: d_cid_ic, Authentication: Unknown]"));
+            Assert.That(visitorIdsString, Is.StringContaining("[Id: value4, Type: id4, Origin: d_cid_ic, Authentication: LoggedOut]"));
+            Assert.That(visitorIdsString, Is.StringContaining("[Id: value5, Type: id5, Origin: d_cid_ic, Authentication: LoggedOut]"));
         }
 
         [Test]
         public void TestGetUrlVariables_Returns_UrlVariables()
         {
             // setup
-            CountdownEvent latch = new CountdownEvent(1);
+            CountdownEvent latch = new CountdownEvent(2);
+            string ecid = null;
+            string urlString = null;
+            string orgid = new NSString("972C898555E9F7BC7F000101%40AdobeOrg");
             // test
-            ACPIdentity.GetUrlVariables(callback => {
-                var urlString = callback.ToString();
-                NSString ecid = null;
-                NSString orgid = new NSString("972C898555E9F7BC7F000101%40AdobeOrg");
-                ACPIdentity.GetExperienceCloudId(ecidCallback =>
-                {
-                    ecid = ecidCallback;
+            ACPIdentity.GetExperienceCloudId(ecidCallback =>
+            {
+                ecid = ecidCallback.ToString();
+                latch.Signal();
+                ACPIdentity.GetUrlVariables(callback => {
+                    urlString = callback.ToString();
                     latch.Signal();
+
+
                 });
-                latch.Wait();
-                latch.Dispose();
-                // verify
-                Assert.True(urlString.Contains(ecid));
-                Assert.True(urlString.Contains(orgid));
             });
+            latch.Wait();
+            latch.Dispose();
+            // verify
+            Assert.That(urlString, Is.StringContaining(ecid));
+            Assert.That(urlString, Is.StringContaining(orgid));
         }
 
         // ACPLifecycle tests
@@ -225,7 +237,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPLifecycleExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPLifecycle.ExtensionVersion == "2.0.4");
+            Assert.That(ACPLifecycle.ExtensionVersion, Is.EqualTo("2.0.4"));
         }
 
         // ACPSignal tests
@@ -233,7 +245,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPSignalExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPSignal.ExtensionVersion == "2.0.4");
+            Assert.That(ACPSignal.ExtensionVersion, Is.EqualTo("2.0.4"));
         }
     }
 }

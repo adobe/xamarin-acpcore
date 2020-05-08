@@ -46,7 +46,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPCoreExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPCore.ExtensionVersion() == "1.5.3-XM");
+            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("1.5.3-XM"));
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace ACPCoreAndroidUnitTests
             // test
             var status = ACPCore.DispatchEvent(sdkEvent, new ErrorCallback());
             // verify
-            Assert.True(status);
+            Assert.That(status, Is.EqualTo(true));
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace ACPCoreAndroidUnitTests
             // test
             var status = ACPCore.DispatchEventWithResponseCallback(sdkEvent, new StringCallback(), new ErrorCallback());
             // verify
-            Assert.True(status);
+            Assert.That(status, Is.EqualTo(true));
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace ACPCoreAndroidUnitTests
             // test
             var status = ACPCore.DispatchResponseEvent(responseEvent, requestEvent, new ErrorCallback());
             // verify
-            Assert.True(status);
+            Assert.That(status, Is.EqualTo(true));
         }
 
         [Test]
@@ -101,7 +101,7 @@ namespace ACPCoreAndroidUnitTests
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.True(retrievedPrivacyStatus == expectedPrivacyStatus);
+            Assert.That(retrievedPrivacyStatus, Is.EqualTo(expectedPrivacyStatus));
         }
 
         [Test]
@@ -116,7 +116,7 @@ namespace ACPCoreAndroidUnitTests
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.True(retrievedPrivacyStatus == expectedPrivacyStatus);
+            Assert.That(retrievedPrivacyStatus, Is.EqualTo(expectedPrivacyStatus));
         }
 
         [Test]
@@ -131,7 +131,7 @@ namespace ACPCoreAndroidUnitTests
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.True(retrievedPrivacyStatus == expectedPrivacyStatus);
+            Assert.That(retrievedPrivacyStatus, Is.EqualTo(expectedPrivacyStatus));
         }
 
         [Test]
@@ -144,7 +144,7 @@ namespace ACPCoreAndroidUnitTests
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.True(retrievedString.Length > 0);
+            Assert.That(retrievedString.Length, Is.GreaterThan(0));
         }
 
         // ACPIdentity tests
@@ -152,13 +152,14 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPIdentityExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPIdentity.ExtensionVersion() == "1.2.0");
+            Assert.That(ACPIdentity.ExtensionVersion(), Is.EqualTo("1.2.0"));
         }
 
         [Test]
         public void TestAppendVisitorInfoForUrl_Returns_AppendedUrl()
         {
             // setup
+            Thread.Sleep(1000);
             latch = new CountdownEvent(2);
             String url = "https://test.com";
             String orgid = "972C898555E9F7BC7F000101%40AdobeOrg";
@@ -168,15 +169,16 @@ namespace ACPCoreAndroidUnitTests
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.True(retrievedString.Contains(url));
-            Assert.True(retrievedString.Contains(retrievedEcid));
-            Assert.True(retrievedString.Contains(orgid));
+            Assert.That(retrievedString, Is.StringContaining(url));
+            Assert.That(retrievedString, Is.StringContaining(retrievedEcid));
+            Assert.That(retrievedString, Is.StringContaining(orgid));
         }
 
         [Test]
         public void TestGetIdentifiers_Returns_SyncedIdentifiers()
         {
             // setup
+            latch = new CountdownEvent(1);
             ACPIdentity.SyncIdentifier("id1", "value1", VisitorID.AuthenticationState.Authenticated);
             Dictionary<string, string> ids = new Dictionary<string, string>();
             ids.Add("id2", "value2");
@@ -188,12 +190,14 @@ namespace ACPCoreAndroidUnitTests
             ACPIdentity.SyncIdentifiers(ids2, VisitorID.AuthenticationState.LoggedOut);
             // test
             ACPIdentity.GetIdentifiers(new GetIdentifiersCallback());
+            latch.Wait();
+            latch.Dispose();
             // verify
-            Assert.True(retrievedVisitorIdentifiers.Contains("[Id: id1, Type: value1, Origin: d_cid_ic, Authentication: Authenticated]"));
-            Assert.True(retrievedVisitorIdentifiers.Contains("[Id: id2, Type: value2, Origin: d_cid_ic, Authentication: Unknown]"));
-            Assert.True(retrievedVisitorIdentifiers.Contains("[Id: id3, Type: value3, Origin: d_cid_ic, Authentication: Unknown]"));
-            Assert.True(retrievedVisitorIdentifiers.Contains("[Id: id4, Type: value4, Origin: d_cid_ic, Authentication: LoggedOut]"));
-            Assert.True(retrievedVisitorIdentifiers.Contains("[Id: id5, Type: value5, Origin: d_cid_ic, Authentication: LoggedOut]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value1, Type: id1, Origin: d_cid_ic, Authentication: Authenticated]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value2, Type: id2, Origin: d_cid_ic, Authentication: Unknown]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value3, Type: id3, Origin: d_cid_ic, Authentication: Unknown]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value4, Type: id4, Origin: d_cid_ic, Authentication: LoggedOut]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value5, Type: id5, Origin: d_cid_ic, Authentication: LoggedOut]"));
         }
 
         [Test]
@@ -208,8 +212,8 @@ namespace ACPCoreAndroidUnitTests
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.True(retrievedString.Contains(retrievedEcid));
-            Assert.True(retrievedString.Contains(orgid));
+            Assert.That(retrievedString, Is.StringContaining(retrievedEcid));
+            Assert.That(retrievedString, Is.StringContaining(orgid));
         }
 
         // ACPLifecycle tests
@@ -217,7 +221,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPLifecycleExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.True(ACPLifecycle.ExtensionVersion() == "1.0.4");
+            Assert.That(ACPLifecycle.ExtensionVersion(), Is.EqualTo("1.0.4"));
         }
 
         // ACPSignal tests
@@ -226,7 +230,7 @@ namespace ACPCoreAndroidUnitTests
         {
             // verify
             // todo: this should be 1.0.3 but the current signal aar returns the wrong version
-            Assert.True(ACPSignal.ExtensionVersion() == "1.0.2");
+            Assert.That(ACPSignal.ExtensionVersion(), Is.EqualTo("1.0.2"));
         }
 
         // callbacks
@@ -263,6 +267,7 @@ namespace ACPCoreAndroidUnitTests
                 }
                 if (latch.IsSet)
                 {
+                    Thread.Sleep(1000);
                     latch.Signal();
                 }
             }
@@ -304,6 +309,10 @@ namespace ACPCoreAndroidUnitTests
                             retrievedVisitorIdentifiers = retrievedVisitorIdentifiers + "[Id: " + id.Id + ", Type: " + id.IdType + ", Origin: " + id.IdOrigin + ", Authentication: " + id.GetAuthenticationState() + "]";
                         }
                     }
+                }
+                if (latch != null)
+                {
+                    latch.Signal();
                 }
             }
         }
