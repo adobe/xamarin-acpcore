@@ -1,4 +1,5 @@
-﻿<!--
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
     Copyright 2020 Adobe
     All Rights Reserved.
     NOTICE: Adobe permits you to use, modify, and distribute this file in
@@ -9,8 +10,6 @@
     This file has been modified from its original form. The original
     license can be viewed in the NOTICES.txt file.
 -->
-
-<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <!-- Use ACPSignal for Xamarin plugin name -->
   <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='Signal']" name="managedName">ACPSignal</attr>
