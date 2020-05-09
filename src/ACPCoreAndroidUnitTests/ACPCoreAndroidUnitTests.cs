@@ -159,14 +159,13 @@ namespace ACPCoreAndroidUnitTests
         public void TestAppendVisitorInfoForUrl_Returns_AppendedUrl()
         {
             // setup
-            Thread.Sleep(1000);
             latch = new CountdownEvent(2);
             String url = "https://test.com";
             String orgid = "972C898555E9F7BC7F000101%40AdobeOrg";
             // test
             ACPIdentity.GetExperienceCloudId(new EcidCallback());
             ACPIdentity.AppendVisitorInfoForURL(url, new StringCallback());
-            latch.Wait();
+            latch.Wait(1000);
             latch.Dispose();
             // verify
             Assert.That(retrievedString, Is.StringContaining(url));
@@ -185,19 +184,19 @@ namespace ACPCoreAndroidUnitTests
             ids.Add("id3", "value3");
             ACPIdentity.SyncIdentifiers(ids);
             Dictionary<string, string> ids2 = new Dictionary<string, string>();
-            ids.Add("id4", "value4");
-            ids.Add("id5", "value5");
+            ids2.Add("id4", "value4");
+            ids2.Add("id5", "value5");
             ACPIdentity.SyncIdentifiers(ids2, VisitorID.AuthenticationState.LoggedOut);
             // test
             ACPIdentity.GetIdentifiers(new GetIdentifiersCallback());
             latch.Wait();
             latch.Dispose();
             // verify
-            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value1, Type: id1, Origin: d_cid_ic, Authentication: Authenticated]"));
-            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value2, Type: id2, Origin: d_cid_ic, Authentication: Unknown]"));
-            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value3, Type: id3, Origin: d_cid_ic, Authentication: Unknown]"));
-            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value4, Type: id4, Origin: d_cid_ic, Authentication: LoggedOut]"));
-            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value5, Type: id5, Origin: d_cid_ic, Authentication: LoggedOut]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value1, Type: id1, Origin: d_cid_ic, Authentication: AUTHENTICATED]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value2, Type: id2, Origin: d_cid_ic, Authentication: UNKNOWN]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value3, Type: id3, Origin: d_cid_ic, Authentication: UNKNOWN]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value4, Type: id4, Origin: d_cid_ic, Authentication: LOGGED_OUT]"));
+            Assert.That(retrievedVisitorIdentifiers, Is.StringContaining("[Id: value5, Type: id5, Origin: d_cid_ic, Authentication: LOGGED_OUT]"));
         }
 
         [Test]
@@ -205,7 +204,7 @@ namespace ACPCoreAndroidUnitTests
         {
             // setup
             latch = new CountdownEvent(2);
-            String orgid = "972C898555E9F7BC7F000101%40AdobeOrg";
+            string orgid = "972C898555E9F7BC7F000101%40AdobeOrg";
             // test
             ACPIdentity.GetExperienceCloudId(new EcidCallback());
             ACPIdentity.GetUrlVariables(new StringCallback());
@@ -241,6 +240,7 @@ namespace ACPCoreAndroidUnitTests
                 if (stringContent != null)
                 {
                     retrievedString = stringContent.ToString();
+                    Console.WriteLine("string retrieved: " + retrievedString);
                 }
                 else
                 {
@@ -265,9 +265,8 @@ namespace ACPCoreAndroidUnitTests
                 {
                     Console.WriteLine("null content in ecid callback");
                 }
-                if (latch.IsSet)
+                if (latch != null)
                 {
-                    Thread.Sleep(1000);
                     latch.Signal();
                 }
             }
@@ -306,7 +305,7 @@ namespace ACPCoreAndroidUnitTests
                         retrievedVisitorIdentifiers = "";
                         foreach (VisitorID id in ids)
                         {
-                            retrievedVisitorIdentifiers = retrievedVisitorIdentifiers + "[Id: " + id.Id + ", Type: " + id.IdType + ", Origin: " + id.IdOrigin + ", Authentication: " + id.GetAuthenticationState() + "]";
+                            retrievedVisitorIdentifiers = retrievedVisitorIdentifiers + "[Id: " + id.Id + ", Type: " + id.IdType + ", Origin: " + id.IdOrigin + ", Authentication: " + id.GetAuthenticationState().ToString() + "]";
                         }
                     }
                 }
@@ -314,6 +313,7 @@ namespace ACPCoreAndroidUnitTests
                 {
                     latch.Signal();
                 }
+                Console.WriteLine("retrieved visitor identifiers string: " + retrievedVisitorIdentifiers);
             }
         }
 
