@@ -32,7 +32,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPCoreExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPCore.ExtensionVersion, Is.EqualTo("2.6.1-XM"));
+            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("2.6.1-XM"));
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPIdentityExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPIdentity.ExtensionVersion, Is.EqualTo("2.2.1"));
+            Assert.That(ACPIdentity.ExtensionVersion(), Is.EqualTo("2.2.1"));
         }
 
         [Test]
@@ -237,7 +237,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPLifecycleExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPLifecycle.ExtensionVersion, Is.EqualTo("2.0.4"));
+            Assert.That(ACPLifecycle.ExtensionVersion(), Is.EqualTo("2.0.4"));
         }
 
         // ACPSignal tests
@@ -245,7 +245,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPSignalExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPSignal.ExtensionVersion, Is.EqualTo("2.0.4"));
+            Assert.That(ACPSignal.ExtensionVersion(), Is.EqualTo("2.0.4"));
         }
     }
 }

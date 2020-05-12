@@ -114,13 +114,7 @@ protected override void OnCreate(Bundle savedInstanceState)
 
 ##### Getting Core version:
 
-**iOS**
-
-```c#
-Console.WriteLine(ACPCore.ExtensionVersion);
-```
-
-**Android**
+**iOS and Android**
 
 ```c#
 Console.WriteLine(ACPCore.ExtensionVersion());
@@ -435,13 +429,7 @@ ACPCore.TrackState("state", data);
 
 ##### Getting Identity version:
 
-**iOS**
-
-```c#
-Console.WriteLine((ACPIdentity.ExtensionVersion);
-```
-
-**Android**
+**iOS and Android**
 
 ```c#
 Console.WriteLine(ACPIdentity.ExtensionVersion());
@@ -670,13 +658,7 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 
 ##### Getting Lifecycle version:
 
-**iOS**
-
-```c#
-Console.WriteLine(ACPLifecycle.ExtensionVersion);
-```
-
-**Android**
+**iOS and Android**
 
 ```c#
 Console.WriteLine(ACPLifecycle.ExtensionVersion());
@@ -731,13 +713,7 @@ public override void OnResignActivation(UIApplication uiApplication)
 
 ##### Getting Signal version:
 
-**iOS**
-
-```c#
-Console.WriteLine(ACPSignal.ExtensionVersion);
-```
-
-**Android**
+**iOS and Android**
 
 ```c#
 Console.WriteLine(ACPSignal.ExtensionVersion());

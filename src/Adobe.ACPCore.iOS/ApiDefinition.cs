@@ -57,7 +57,7 @@ namespace Com.Adobe.Marketing.Mobile
 		// +(NSString * _Nonnull)extensionVersion;
 		[Static]
 		[Export("extensionVersion")]
-		string ExtensionVersion { get; }
+		string ExtensionVersion();
 
 		// +(void)setAppGroup:(NSString * _Nullable)appGroup;
 		[Static]
@@ -311,7 +311,7 @@ namespace Com.Adobe.Marketing.Mobile
 		// +(NSString * _Nonnull)extensionVersion;
 		[Static]
 		[Export("extensionVersion")]
-		string ExtensionVersion { get; }
+		string ExtensionVersion();
 
 		// +(void)getIdentifiers:(void (^ _Nonnull)(NSArray<ACPMobileVisitorId *> * _Nullable))callback;
 		[Static]
@@ -371,7 +371,7 @@ namespace Com.Adobe.Marketing.Mobile
 		// +(NSString * _Nonnull)extensionVersion;
 		[Static]
 		[Export("extensionVersion")]
-		string ExtensionVersion { get; }
+		string ExtensionVersion();
 
 		// +(void)registerExtension;
 		[Static]
@@ -438,7 +438,7 @@ namespace Com.Adobe.Marketing.Mobile
 		// +(NSString * _Nonnull)extensionVersion;
 		[Static]
 		[Export("extensionVersion")]
-		string ExtensionVersion { get; }
+		string ExtensionVersion();
 
 		// +(void)registerExtension;
 		[Static]
