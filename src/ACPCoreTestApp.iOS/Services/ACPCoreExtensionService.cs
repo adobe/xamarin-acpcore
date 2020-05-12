@@ -29,7 +29,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetExtensionVersionCore()
         {
             stringOutput = new TaskCompletionSource<string>();
-            stringOutput.SetResult(ACPCore.ExtensionVersion);
+            stringOutput.SetResult(ACPCore.ExtensionVersion());
             return stringOutput;
         }
 
@@ -176,7 +176,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetExtensionVersionIdentity()
         {
             stringOutput = new TaskCompletionSource<string>();
-            stringOutput.SetResult(ACPIdentity.ExtensionVersion);
+            stringOutput.SetResult(ACPIdentity.ExtensionVersion());
             return stringOutput;
         }
 
@@ -220,7 +220,6 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> SyncIdentifier()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<NSString> callback = new Action<NSString>(handleCallback);
             ACPIdentity.SyncIdentifier("name", "john", ACPMobileVisitorAuthenticationState.Authenticated);
             stringOutput.SetResult("completed");
             return stringOutput;
@@ -258,7 +257,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetExtensionVersionLifecycle()
         {
             stringOutput = new TaskCompletionSource<string>();
-            stringOutput.SetResult(ACPLifecycle.ExtensionVersion);
+            stringOutput.SetResult(ACPLifecycle.ExtensionVersion());
             return stringOutput;
         }
 
@@ -266,7 +265,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetExtensionVersionSignal()
         {
             stringOutput = new TaskCompletionSource<string>();
-            stringOutput.SetResult(ACPSignal.ExtensionVersion);
+            stringOutput.SetResult(ACPSignal.ExtensionVersion());
             return stringOutput;
         }
 

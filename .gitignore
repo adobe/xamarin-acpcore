@@ -345,3 +345,5 @@ src/Adobe.ACPSignal.Android/Additions/AboutAdditions.txt
 src/Adobe.ACPSignal.Android/Jars/AboutJars.txt
 src/ACPCoreTestApp.Android/Additions/AboutAdditions.txt
 src/ACPCoreTestApp.Android/Resources/AboutResources.txt
+src/ACPCoreAndroidUnitTests/Assets/AboutAssets.txt
+src/ACPCoreAndroidUnitTests/Resources/AboutResources.txt
