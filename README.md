@@ -1,6 +1,5 @@
 # Adobe Experience Platform - Core plugin for Xamarin apps
 [![CI](https://github.com/adobe/xamarin-acpcore/workflows/CI/badge.svg)](https://github.com/adobe/xamarin-acpcore/actions)
-[![npm](https://img.shields.io/npm/v/@adobe/xamarin-acpcore)](https://www.npmjs.com/package/@adobe/xamarin-acpcore)
 [![GitHub](https://img.shields.io/github/license/adobe/xamarin-acpcore)](https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE)
 
 - [Prerequisites](#prerequisites)
@@ -37,13 +36,11 @@ followed by:
 make release
 ```
 
-The created NuGet packages can be found in the `bin` directory and can be added as reference to a Xamarin project.
+The created NuGet packages can be found in the `bin` directory and can be added as a reference to a Xamarin project.
 
 ## Usage
 
 ### [Core](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core)
-
-The following usage instructions assume [Xamarin Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) is being used to develop a multiplatform mobile app.
 
 #### Initialization
 
@@ -84,7 +81,7 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 using Com.Adobe.Marketing.Mobile;
 
 protected override void OnCreate(Bundle savedInstanceState)
-        {
+{
   TabLayoutResource = Resource.Layout.Tabbar;
   ToolbarResource = Resource.Layout.Toolbar;
   
@@ -120,23 +117,13 @@ protected override void OnCreate(Bundle savedInstanceState)
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionCore()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPCore.ExtensionVersion);
-  return stringOutput;
-}
+Console.WriteLine(ACPCore.ExtensionVersion);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionCore()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPCore.ExtensionVersion());
-  return stringOutput;
-}
+Console.WriteLine(ACPCore.ExtensionVersion());
 ```
 
 ##### Updating the SDK configuration:
@@ -144,31 +131,19 @@ public TaskCompletionSource<string> GetExtensionVersionCore()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> UpdateConfig()
+var config = new NSMutableDictionary<NSString, NSObject>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  var config = new NSMutableDictionary<NSString, NSObject>
-  {
-    ["someConfigKey"] = new NSString("configValue")
-  };
-  ACPCore.UpdateConfiguration(config);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+  ["someConfigKey"] = new NSString("configValue")
+};
+ACPCore.UpdateConfiguration(config);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> UpdateConfig()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Dictionary<string, Java.Lang.Object> config = new Dictionary<string, Java.Lang.Object>();
-  config.Add("someConfigKey", "configValue");
-  ACPCore.UpdateConfiguration(config);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+Dictionary<string, Java.Lang.Object> config = new Dictionary<string, Java.Lang.Object>();
+config.Add("someConfigKey", "configValue");
+ACPCore.UpdateConfiguration(config);
 ```
 
 ##### Controlling the log level of the SDK:
@@ -196,14 +171,8 @@ ACPCore.LogLevel = LoggingMode.Verbose;
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetPrivacyStatus()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Action<ACPMobilePrivacyStatus> callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
+Action<ACPMobilePrivacyStatus> callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
   ACPCore.GetPrivacyStatus(callback);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
 
 private void handleCallback(ACPMobilePrivacyStatus privacyStatus)
 {
@@ -214,13 +183,7 @@ private void handleCallback(ACPMobilePrivacyStatus privacyStatus)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetPrivacyStatus()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPCore.GetPrivacyStatus(new StringCallback());
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPCore.GetPrivacyStatus(new StringCallback());
 
 class StringCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -243,25 +206,13 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> SetPrivacyStatus()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPCore.SetPrivacyStatus(ACPMobilePrivacyStatus.OptIn);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPCore.SetPrivacyStatus(ACPMobilePrivacyStatus.OptIn);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> SetPrivacyStatus()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPCore.SetPrivacyStatus(MobilePrivacyStatus.OptIn);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPCore.SetPrivacyStatus(MobilePrivacyStatus.OptIn);
 ```
 
 ##### Getting the SDK identities:
@@ -269,14 +220,8 @@ public TaskCompletionSource<string> SetPrivacyStatus()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetSDKIdentities()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Action<NSString> callback = new Action<NSString>(handleCallback);
-  ACPCore.GetSdkIdentities(callback);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+Action<NSString> callback = new Action<NSString>(handleCallback);
+ACPCore.GetSdkIdentities(callback);
 
 private void handleCallback(NSString content)
 {
@@ -287,13 +232,7 @@ private void handleCallback(NSString content)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetSDKIdentities()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPCore.GetSdkIdentities(new StringCallback());
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPCore.GetSdkIdentities(new StringCallback());
 
 class StringCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -316,36 +255,21 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> DispatchEvent()
+var data = new NSMutableDictionary<NSString, NSObject>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  NSError error;
-  var data = new NSMutableDictionary<NSString, NSObject>
-  {
-    ["dispatchResponseEventKey"] = new NSString("dispatchResponseEventValue")
-  };
-  ACPExtensionEvent sdkEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
-  stringOutput.SetResult(ACPCore.DispatchEvent(sdkEvent, out error).ToString());
-  if (error != null)
-  {
-    stringOutput.SetResult(error.LocalizedDescription);
-  }
-  return stringOutput;
-}
+  ["dispatchResponseEventKey"] = new NSString("dispatchResponseEventValue")
+};
+ACPExtensionEvent sdkEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
+ACPCore.DispatchEvent(sdkEvent, out error);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> DispatchEvent()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
-  data.Add("testEvent", true);
-  Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
-  stringOutput.SetResult(ACPCore.DispatchEvent(sdkEvent, new ErrorCallback()).ToString());
-  return stringOutput;
-}
+IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+data.Add("testEvent", true);
+Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
+ACPCore.DispatchEvent(sdkEvent, new ErrorCallback());
 
 class ErrorCallback : Java.Lang.Object, IExtensionErrorCallback
 {
@@ -365,23 +289,13 @@ class ErrorCallback : Java.Lang.Object, IExtensionErrorCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> DispatchEventWithResponseCallback()
+var data = new NSMutableDictionary<NSString, NSObject>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  NSError error;
-  var data = new NSMutableDictionary<NSString, NSObject>
-  {
-    ["dispatchResponseEventKey"] = new NSString("dispatchResponseEventValue")
-  };
-  ACPExtensionEvent sdkEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
-  Action<ACPExtensionEvent> callback = new Action<ACPExtensionEvent>(handleCallback);
-  stringOutput.SetResult(ACPCore.DispatchEventWithResponseCallback(sdkEvent, callback, out error).ToString());
-  if(error != null)
-  {
-    stringOutput.SetResult(error.LocalizedDescription);
-  }
-  return stringOutput;
-}
+  ["dispatchResponseEventKey"] = new NSString("dispatchResponseEventValue")
+};
+ACPExtensionEvent sdkEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
+Action<ACPExtensionEvent> callback = new Action<ACPExtensionEvent>(handleCallback);
+ACPCore.DispatchEventWithResponseCallback(sdkEvent, callback, out error);
 
 private void handleCallback(ACPExtensionEvent responseEvent)
 {
@@ -392,15 +306,10 @@ private void handleCallback(ACPExtensionEvent responseEvent)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> DispatchEventWithResponseCallback()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
-  data.Add("testEvent", true);
-  Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
-  stringOutput.SetResult(ACPCore.DispatchEventWithResponseCallback(sdkEvent, new StringCallback(), new ErrorCallback()).ToString());
-  return stringOutput;
-}
+IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+data.Add("testEvent", true);
+Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
+ACPCore.DispatchEventWithResponseCallback(sdkEvent, new StringCallback(), new ErrorCallback());
 
 class StringCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -435,38 +344,23 @@ class ErrorCallback : Java.Lang.Object, IExtensionErrorCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> DispatchResponseEvent()
+var data = new NSMutableDictionary<NSString, NSObject>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  NSError error;
-  var data = new NSMutableDictionary<NSString, NSObject>
-  {
-    ["dispatchResponseEventKey"] = new NSString("dispatchResponseEventValue")
-  };
-  ACPExtensionEvent requestEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
-  ACPExtensionEvent responseEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
-  stringOutput.SetResult(ACPCore.DispatchResponseEvent(responseEvent, requestEvent, out error).ToString());
-  if (error != null)
-  {
-    stringOutput.SetResult(error.LocalizedDescription);
-  }
-  return stringOutput;
-}
+  ["dispatchResponseEventKey"] = new NSString("dispatchResponseEventValue")
+};
+ACPExtensionEvent requestEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
+ACPExtensionEvent responseEvent = ACPExtensionEvent.ExtensionEventWithName("eventName", "eventType", "eventSource", data, out _);
+ACPCore.DispatchResponseEvent(responseEvent, requestEvent, out error));
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> DispatchResponseEvent()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
-  data.Add("testDispatchResponseEvent", "true");
-  Event requestEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
-  Event responseEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
-  stringOutput.SetResult(ACPCore.DispatchResponseEvent(responseEvent, requestEvent, new ErrorCallback()).ToString());
-  return stringOutput;
-}
+IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+data.Add("testDispatchResponseEvent", "true");
+Event requestEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
+Event responseEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
+ACPCore.DispatchResponseEvent(responseEvent, requestEvent, new ErrorCallback());
 
 class ErrorCallback : Java.Lang.Object, IExtensionErrorCallback
 {
@@ -486,13 +380,7 @@ class ErrorCallback : Java.Lang.Object, IExtensionErrorCallback
 **iOS only**
 
 ```c#
-public TaskCompletionSource<string> DownloadRules()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPCore.DownloadRules();
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPCore.DownloadRules();
 ```
 
 ##### Setting the advertising identifier:
@@ -500,13 +388,7 @@ public TaskCompletionSource<string> DownloadRules()
 **iOS and Android**
 
 ```c#
-public TaskCompletionSource<string> SetAdvertisingIdentifier()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPCore.SetAdvertisingIdentifier("testAdvertisingIdentifier");
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPCore.SetAdvertisingIdentifier("testAdvertisingIdentifier");
 ```
 
 ##### Calling track action
@@ -514,31 +396,19 @@ public TaskCompletionSource<string> SetAdvertisingIdentifier()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> TrackAction()
+var data = new NSMutableDictionary<NSString, NSString>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  var data = new NSMutableDictionary<NSString, NSString>
-  {
-    ["key"] = new NSString("value")
-  };
-  ACPCore.TrackAction("action", data);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+  ["key"] = new NSString("value")
+};
+ACPCore.TrackAction("action", data);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> TrackAction()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Dictionary<string, string> data = new Dictionary<string, string>();
-  data.Add("key", "value");
-  ACPCore.TrackAction("action", data);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+Dictionary<string, string> data = new Dictionary<string, string>();
+data.Add("key", "value");
+ACPCore.TrackAction("action", data);
 ```
 
 ##### Calling track state
@@ -546,31 +416,19 @@ public TaskCompletionSource<string> TrackAction()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> TrackState()
+var data = new NSMutableDictionary<NSString, NSString>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  var data = new NSMutableDictionary<NSString, NSString>
-  {
-    ["key"] = new NSString("value")
-  };
-  ACPCore.TrackState("state", data);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+  ["key"] = new NSString("value")
+};
+ACPCore.TrackState("state", data);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> TrackState()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Dictionary<string, string> data = new Dictionary<string, string>();
-  data.Add("key", "value");
-  ACPCore.TrackState("state", data);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+Dictionary<string, string> data = new Dictionary<string, string>();
+data.Add("key", "value");
+ACPCore.TrackState("state", data);
 ```
 
 ### [Identity](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core/identity)
@@ -580,23 +438,13 @@ public TaskCompletionSource<string> TrackState()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionIdentity()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPIdentity.ExtensionVersion);
-  return stringOutput;
-}
+Console.WriteLine((ACPIdentity.ExtensionVersion);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionIdentity()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPIdentity.ExtensionVersion());
-  return stringOutput;
-}
+Console.WriteLine(ACPIdentity.ExtensionVersion());
 ```
 
 ##### Sync Identifier:
@@ -604,25 +452,13 @@ public TaskCompletionSource<string> GetExtensionVersionIdentity()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> SyncIdentifier()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPIdentity.SyncIdentifier("name", "john", ACPMobileVisitorAuthenticationState.Authenticated);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPIdentity.SyncIdentifier("name", "john", ACPMobileVisitorAuthenticationState.Authenticated);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> SyncIdentifier()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPIdentity.SyncIdentifier("name", "john", VisitorID.AuthenticationState.Authenticated);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+ACPIdentity.SyncIdentifier("name", "john", VisitorID.AuthenticationState.Authenticated);
 ```
 
 ##### Sync Identifiers:
@@ -630,35 +466,23 @@ public TaskCompletionSource<string> SyncIdentifier()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> SyncIdentifiers()
+var ids = new NSMutableDictionary<NSString, NSObject>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  var ids = new NSMutableDictionary<NSString, NSObject>
-  {
-    ["lastName"] = new NSString("doe"),
-    ["age"] = new NSString("38"),
-    ["zipcode"] = new NSString("94403")
-  };
-  ACPIdentity.SyncIdentifiers(ids);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+  ["lastName"] = new NSString("doe"),
+  ["age"] = new NSString("38"),
+  ["zipcode"] = new NSString("94403")
+};
+ACPIdentity.SyncIdentifiers(ids);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> SyncIdentifiers()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Dictionary<string, string> ids = new Dictionary<string, string>();
-  ids.Add("lastname", "doe");
-  ids.Add("age", "38");
-  ids.Add("zipcode", "94403");
-  ACPIdentity.SyncIdentifiers(ids);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+Dictionary<string, string> ids = new Dictionary<string, string>();
+ids.Add("lastname", "doe");
+ids.Add("age", "38");
+ids.Add("zipcode", "94403");
+ACPIdentity.SyncIdentifiers(ids);
 ```
 
 ##### Sync Identifiers with Authentication State:
@@ -666,35 +490,23 @@ public TaskCompletionSource<string> SyncIdentifiers()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> SyncIdentifiers()
+var ids = new NSMutableDictionary<NSString, NSObject>
 {
-  stringOutput = new TaskCompletionSource<string>();
-  var ids = new NSMutableDictionary<NSString, NSObject>
-  {
-    ["lastName"] = new NSString("doe"),
-    ["age"] = new NSString("38"),
-    ["zipcode"] = new NSString("94403")
-  };
-  ACPIdentity.SyncIdentifiers(ids, ACPMobileVisitorAuthenticationState.LoggedOut);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+  ["lastName"] = new NSString("doe"),
+  ["age"] = new NSString("38"),
+  ["zipcode"] = new NSString("94403")
+};
+ACPIdentity.SyncIdentifiers(ids, ACPMobileVisitorAuthenticationState.LoggedOut);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> SyncIdentifiers()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Dictionary<string, string> ids = new Dictionary<string, string>();
-  ids.Add("lastname", "doe");
-  ids.Add("age", "38");
-  ids.Add("zipcode", "94403");
-  ACPIdentity.SyncIdentifiers(ids, VisitorID.AuthenticationState.LoggedOut);
-  stringOutput.SetResult("completed");
-  return stringOutput;
-}
+Dictionary<string, string> ids = new Dictionary<string, string>();
+ids.Add("lastname", "doe");
+ids.Add("age", "38");
+ids.Add("zipcode", "94403");
+ACPIdentity.SyncIdentifiers(ids, VisitorID.AuthenticationState.LoggedOut);
 ```
 
 ##### Append visitor data to a URL:
@@ -702,15 +514,9 @@ public TaskCompletionSource<string> SyncIdentifiers()
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> AppendVisitorInfoForUrl()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Action<NSUrl> callback = new Action<NSUrl>(handleCallback);
-  var url = new NSUrl("https://example.com");
-  ACPIdentity.AppendToUrl(url, callback);
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+Action<NSUrl> callback = new Action<NSUrl>(handleCallback);
+var url = new NSUrl("https://example.com");
+ACPIdentity.AppendToUrl(url, callback);
 
 private void handleCallback(NSString content)
 {
@@ -721,13 +527,7 @@ private void handleCallback(NSString content)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> AppendVisitorInfoForUrl()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPIdentity.AppendVisitorInfoForURL("https://example.com", new StringCallback());
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+ACPIdentity.AppendVisitorInfoForURL("https://example.com", new StringCallback());
 
 class StringCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -750,14 +550,8 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetUrlVariables()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Action<NSString> callback = new Action<NSString> (handleCallback);
-  ACPIdentity.GetUrlVariables(callback);
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+Action<NSString> callback = new Action<NSString> (handleCallback);
+ACPIdentity.GetUrlVariables(callback);
 
 private void handleCallback(NSString content)
 {
@@ -768,13 +562,7 @@ private void handleCallback(NSString content)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetUrlVariables()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPIdentity.GetUrlVariables(new StringCallback());
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+ACPIdentity.GetUrlVariables(new StringCallback());
 
 class StringCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -797,14 +585,8 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetIdentifiers()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Action<ACPMobileVisitorId[]> callback = new Action<ACPMobileVisitorId[]>(handleCallback);
-  ACPIdentity.GetIdentifiers(callback);
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+Action<ACPMobileVisitorId[]> callback = new Action<ACPMobileVisitorId[]>(handleCallback);
+ACPIdentity.GetIdentifiers(callback);
 
 private void handleCallback(ACPMobileVisitorId[] ids)
 {
@@ -824,13 +606,7 @@ private void handleCallback(ACPMobileVisitorId[] ids)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetIdentifiers()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPIdentity.GetIdentifiers(new GetIdentifiersCallback());
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+ACPIdentity.GetIdentifiers(new GetIdentifiersCallback());
 
 class GetIdentifiersCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -860,14 +636,8 @@ class GetIdentifiersCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetExperienceCloudId()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  Action<NSString> callback = new Action<NSString>(handleCallback);
-  ACPIdentity.GetExperienceCloudId(callback);
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+Action<NSString> callback = new Action<NSString>(handleCallback);
+ACPIdentity.GetExperienceCloudId(callback);
 
 private void handleCallback(NSString content)
 {
@@ -878,13 +648,7 @@ private void handleCallback(NSString content)
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetExperienceCloudId()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  ACPIdentity.GetExperienceCloudId(new StringCallback());
-  stringOutput.SetResult("");
-  return stringOutput;
-}
+ACPIdentity.GetExperienceCloudId(new StringCallback());
 
 class StringCallback : Java.Lang.Object, IAdobeCallback
 {
@@ -909,23 +673,13 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionLifecycle()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPLifecycle.ExtensionVersion);
-  return stringOutput;
-}
+Console.WriteLine(ACPLifecycle.ExtensionVersion);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionLifecycle()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPLifecycle.ExtensionVersion());
-  return stringOutput;
-}
+Console.WriteLine(ACPLifecycle.ExtensionVersion());
 ```
 
 ##### Starting a Lifecycle session
@@ -980,23 +734,13 @@ public override void OnResignActivation(UIApplication uiApplication)
 **iOS**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionSignal()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPSignal.ExtensionVersion);
-  return stringOutput;
-}
+Console.WriteLine(ACPSignal.ExtensionVersion);
 ```
 
 **Android**
 
 ```c#
-public TaskCompletionSource<string> GetExtensionVersionSignal()
-{
-  stringOutput = new TaskCompletionSource<string>();
-  stringOutput.SetResult(ACPSignal.ExtensionVersion());
-  return stringOutput;
-}
+Console.WriteLine(ACPSignal.ExtensionVersion());
 ```
 
 ##### Running Tests
