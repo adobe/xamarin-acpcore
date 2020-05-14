@@ -23,6 +23,7 @@ jobs:
         nuget restore
         cd Adobe.ACPCore.Android/
         msbuild -t:pack
+    # upload built Android packages
     - uses: actions/upload-artifact@v2
       with:
         name: Adobe.ACPCore.Android.0.0.1.nupkg
