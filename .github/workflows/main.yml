@@ -22,7 +22,7 @@ jobs:
         nuget sources add -name nugetizer3000 -Source https://ci.appveyor.com/nuget/nugetizer3000
         nuget restore
         cd Adobe.ACPCore.Android/
-        msbuild Adobe.ACPCore.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+        msbuild -t:pack
         
   iOS:
     runs-on: macos-latest
@@ -34,4 +34,4 @@ jobs:
         nuget sources add -name nugetizer3000 -Source https://ci.appveyor.com/nuget/nugetizer3000
         nuget restore
         cd Adobe.ACPCore.iOS/
-        msbuild Adobe.ACPCore.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+        msbuild -t:build
