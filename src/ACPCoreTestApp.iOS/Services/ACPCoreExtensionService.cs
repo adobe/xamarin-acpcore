@@ -97,7 +97,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetPrivacyStatus()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<ACPMobilePrivacyStatus> callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
+            var callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
             ACPCore.GetPrivacyStatus(callback);
             stringOutput.SetResult("completed");
             return stringOutput;
@@ -106,7 +106,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetSDKIdentities()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<NSString> callback = new Action<NSString>(handleCallback);
+            var callback = new Action<NSString>(handleCallback);
             ACPCore.GetSdkIdentities(callback);
             stringOutput.SetResult("completed");
             return stringOutput;
@@ -183,7 +183,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> AppendVisitorInfoForUrl()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<NSUrl> callback = new Action<NSUrl>(handleCallback);
+            var callback = new Action<NSUrl>(handleCallback);
             var url = new NSUrl("https://example.com");
             ACPIdentity.AppendToUrl(url, callback);
             stringOutput.SetResult("");
@@ -193,7 +193,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetExperienceCloudId()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<NSString> callback = new Action<NSString>(handleCallback);
+            var callback = new Action<NSString>(handleCallback);
             ACPIdentity.GetExperienceCloudId(callback);
             stringOutput.SetResult("");
             return stringOutput;
@@ -202,7 +202,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetIdentifiers()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<ACPMobileVisitorId[]> callback = new Action<ACPMobileVisitorId[]>(handleCallback);
+            var callback = new Action<ACPMobileVisitorId[]>(handleCallback);
             ACPIdentity.GetIdentifiers(callback);
             stringOutput.SetResult("");
             return stringOutput;
@@ -211,7 +211,7 @@ namespace ACPCoreTestApp.iOS
         public TaskCompletionSource<string> GetUrlVariables()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Action<NSString> callback = new Action<NSString> (handleCallback);
+            var callback = new Action<NSString> (handleCallback);
             ACPIdentity.GetUrlVariables(callback);
             stringOutput.SetResult("");
             return stringOutput;

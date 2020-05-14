@@ -22,7 +22,7 @@ namespace Com.Adobe.Marketing.Mobile
 		// +(void)configureWithAppId:(NSString * _Nullable)appid;
 		[Static]
 		[Export("configureWithAppId:")]
-		void ConfigureWithAppId([NullAllowed] string appid);
+		void ConfigureWithAppID([NullAllowed] string appid);
 
 		// +(void)configureWithFileInPath:(NSString * _Nullable)filepath;
 		[Static]

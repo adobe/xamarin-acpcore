@@ -53,7 +53,7 @@ namespace ACPCoreAndroidUnitTests
         public void DispatchValidSDKEvent_Returns_True()
         {
             // setup
-            IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+            var data = new Dictionary<string, Java.Lang.Object>();
             data.Add("testEvent", true);
             Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
             // test
@@ -66,7 +66,7 @@ namespace ACPCoreAndroidUnitTests
         public void DispatchValidSDKEventWithCallback_Returns_True()
         {
             // setup
-            IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+            var data = new Dictionary<string, Java.Lang.Object>();
             data.Add("testEvent", true);
             Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
             // test
@@ -79,7 +79,7 @@ namespace ACPCoreAndroidUnitTests
         public void DispatchValidRequestAndResponseSDKEvents_Returns_True()
         {
             // setup
-            IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+            var data = new Dictionary<string, Java.Lang.Object>();
             data.Add("testDispatchResponseEvent", "true");
             Event requestEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
             Event responseEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
@@ -179,11 +179,11 @@ namespace ACPCoreAndroidUnitTests
             // setup
             latch = new CountdownEvent(1);
             ACPIdentity.SyncIdentifier("id1", "value1", VisitorID.AuthenticationState.Authenticated);
-            Dictionary<string, string> ids = new Dictionary<string, string>();
+            var ids = new Dictionary<string, string>();
             ids.Add("id2", "value2");
             ids.Add("id3", "value3");
             ACPIdentity.SyncIdentifiers(ids);
-            Dictionary<string, string> ids2 = new Dictionary<string, string>();
+            var ids2 = new Dictionary<string, string>();
             ids2.Add("id4", "value4");
             ids2.Add("id5", "value5");
             ACPIdentity.SyncIdentifiers(ids2, VisitorID.AuthenticationState.LoggedOut);

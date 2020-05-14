@@ -36,7 +36,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> DispatchEvent()
         {
             stringOutput = new TaskCompletionSource<string>();
-            IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+            var data = new Dictionary<string, Java.Lang.Object>();
             data.Add("testEvent", true);
             Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
             stringOutput.SetResult(ACPCore.DispatchEvent(sdkEvent, new ErrorCallback()).ToString());
@@ -46,7 +46,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> DispatchEventWithResponseCallback()
         {
             stringOutput = new TaskCompletionSource<string>();
-            IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+            var data = new Dictionary<string, Java.Lang.Object>();
             data.Add("testEvent", true);
             Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
             stringOutput.SetResult(ACPCore.DispatchEventWithResponseCallback(sdkEvent, new StringCallback(), new ErrorCallback()).ToString());
@@ -56,7 +56,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> DispatchResponseEvent()
         {
             stringOutput = new TaskCompletionSource<string>();
-            IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+            var data = new Dictionary<string, Java.Lang.Object>();
             data.Add("testDispatchResponseEvent", "true");
             Event requestEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
             Event responseEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
@@ -115,7 +115,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> TrackAction()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Dictionary<string, string> data = new Dictionary<string, string>();
+            var data = new Dictionary<string, string>();
             data.Add("key", "value");
             ACPCore.TrackAction("action", data);
             stringOutput.SetResult("completed");
@@ -125,7 +125,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> TrackState()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Dictionary<string, string> data = new Dictionary<string, string>();
+            var data = new Dictionary<string, string>();
             data.Add("key", "value");
             ACPCore.TrackState("state", data);
             stringOutput.SetResult("completed");
@@ -135,7 +135,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> UpdateConfig()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Dictionary<string, Java.Lang.Object> config = new Dictionary<string, Java.Lang.Object>();
+            var config = new Dictionary<string, Java.Lang.Object>();
             config.Add("someConfigKey", "configValue");
             ACPCore.UpdateConfiguration(config);
             stringOutput.SetResult("completed");
@@ -193,7 +193,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> SyncIdentifiers()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Dictionary<string, string> ids = new Dictionary<string, string>();
+            var ids = new Dictionary<string, string>();
             ids.Add("lastname", "doe");
             ids.Add("age", "38");
             ids.Add("zipcode", "94403");
@@ -205,7 +205,7 @@ namespace ACPCoreTestApp.Droid
         public TaskCompletionSource<string> SyncIdentifiersWithAuthState()
         {
             stringOutput = new TaskCompletionSource<string>();
-            Dictionary<string, string> ids = new Dictionary<string, string>();
+            var ids = new Dictionary<string, string>();
             ids.Add("lastname", "doe");
             ids.Add("age", "38");
             ids.Add("zipcode", "94403");

@@ -58,7 +58,7 @@ public override bool FinishedLaunching(UIApplication app, NSDictionary options)
   ACPCore.SetWrapperType(ACPMobileWrapperType.Xamarin);
   
   // set launch config
-  ACPCore.ConfigureWithAppId("yourAppId");
+  ACPCore.ConfigureWithAppID("yourAppId");
 
   // register SDK extensions
   ACPIdentity.RegisterExtension();
@@ -94,7 +94,7 @@ protected override void OnCreate(Bundle savedInstanceState)
   ACPCore.SetWrapperType(WrapperType.Xamarin);
   
   // set launch config
-  ACPCore.ConfigureWithAppId("yourAppId");
+  ACPCore.ConfigureWithAppID("yourAppId");
 
   // register SDK extensions
   ACPCore.Application = this.Application;
@@ -135,7 +135,7 @@ ACPCore.UpdateConfiguration(config);
 **Android**
 
 ```c#
-Dictionary<string, Java.Lang.Object> config = new Dictionary<string, Java.Lang.Object>();
+var config = new Dictionary<string, Java.Lang.Object>();
 config.Add("someConfigKey", "configValue");
 ACPCore.UpdateConfiguration(config);
 ```
@@ -165,8 +165,8 @@ ACPCore.LogLevel = LoggingMode.Verbose;
 **iOS**
 
 ```c#
-Action<ACPMobilePrivacyStatus> callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
-  ACPCore.GetPrivacyStatus(callback);
+var callback = new Action<ACPMobilePrivacyStatus>(handleCallback);
+ACPCore.GetPrivacyStatus(callback);
 
 private void handleCallback(ACPMobilePrivacyStatus privacyStatus)
 {
@@ -214,7 +214,7 @@ ACPCore.SetPrivacyStatus(MobilePrivacyStatus.OptIn);
 **iOS**
 
 ```c#
-Action<NSString> callback = new Action<NSString>(handleCallback);
+var callback = new Action<NSString>(handleCallback);
 ACPCore.GetSdkIdentities(callback);
 
 private void handleCallback(NSString content)
@@ -260,7 +260,7 @@ ACPCore.DispatchEvent(sdkEvent, out error);
 **Android**
 
 ```c#
-IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+var data = new Dictionary<string, Java.Lang.Object>();
 data.Add("testEvent", true);
 Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
 ACPCore.DispatchEvent(sdkEvent, new ErrorCallback());
@@ -300,7 +300,7 @@ private void handleCallback(ACPExtensionEvent responseEvent)
 **Android**
 
 ```c#
-IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+var data = new Dictionary<string, Java.Lang.Object>();
 data.Add("testEvent", true);
 Event sdkEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
 ACPCore.DispatchEventWithResponseCallback(sdkEvent, new StringCallback(), new ErrorCallback());
@@ -350,7 +350,7 @@ ACPCore.DispatchResponseEvent(responseEvent, requestEvent, out error));
 **Android**
 
 ```c#
-IDictionary<string, Java.Lang.Object> data = new Dictionary<string, Java.Lang.Object>();
+var data = new Dictionary<string, Java.Lang.Object>();
 data.Add("testDispatchResponseEvent", "true");
 Event requestEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
 Event responseEvent = new Event.Builder("eventName", "eventType", "eventSource").SetEventData(data).Build();
@@ -400,7 +400,7 @@ ACPCore.TrackAction("action", data);
 **Android**
 
 ```c#
-Dictionary<string, string> data = new Dictionary<string, string>();
+var data = new Dictionary<string, string>();
 data.Add("key", "value");
 ACPCore.TrackAction("action", data);
 ```
@@ -420,7 +420,7 @@ ACPCore.TrackState("state", data);
 **Android**
 
 ```c#
-Dictionary<string, string> data = new Dictionary<string, string>();
+var data = new Dictionary<string, string>();
 data.Add("key", "value");
 ACPCore.TrackState("state", data);
 ```
@@ -466,7 +466,7 @@ ACPIdentity.SyncIdentifiers(ids);
 **Android**
 
 ```c#
-Dictionary<string, string> ids = new Dictionary<string, string>();
+var ids = new Dictionary<string, string>();
 ids.Add("lastname", "doe");
 ids.Add("age", "38");
 ids.Add("zipcode", "94403");
@@ -490,7 +490,7 @@ ACPIdentity.SyncIdentifiers(ids, ACPMobileVisitorAuthenticationState.LoggedOut);
 **Android**
 
 ```c#
-Dictionary<string, string> ids = new Dictionary<string, string>();
+var ids = new Dictionary<string, string>();
 ids.Add("lastname", "doe");
 ids.Add("age", "38");
 ids.Add("zipcode", "94403");
@@ -502,7 +502,7 @@ ACPIdentity.SyncIdentifiers(ids, VisitorID.AuthenticationState.LoggedOut);
 **iOS**
 
 ```c#
-Action<NSUrl> callback = new Action<NSUrl>(handleCallback);
+var callback = new Action<NSUrl>(handleCallback);
 var url = new NSUrl("https://example.com");
 ACPIdentity.AppendToUrl(url, callback);
 
@@ -538,7 +538,7 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-Action<NSString> callback = new Action<NSString> (handleCallback);
+var callback = new Action<NSString> (handleCallback);
 ACPIdentity.GetUrlVariables(callback);
 
 private void handleCallback(NSString content)
@@ -573,7 +573,7 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-Action<ACPMobileVisitorId[]> callback = new Action<ACPMobileVisitorId[]>(handleCallback);
+var callback = new Action<ACPMobileVisitorId[]>(handleCallback);
 ACPIdentity.GetIdentifiers(callback);
 
 private void handleCallback(ACPMobileVisitorId[] ids)
@@ -624,7 +624,7 @@ class GetIdentifiersCallback : Java.Lang.Object, IAdobeCallback
 **iOS**
 
 ```c#
-Action<NSString> callback = new Action<NSString>(handleCallback);
+var callback = new Action<NSString>(handleCallback);
 ACPIdentity.GetExperienceCloudId(callback);
 
 private void handleCallback(NSString content)
