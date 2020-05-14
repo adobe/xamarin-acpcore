@@ -23,6 +23,22 @@ jobs:
         nuget restore
         cd Adobe.ACPCore.Android/
         msbuild -t:pack
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Adobe.ACPCore.Android.0.0.1.nupkg
+        path: bin
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Adobe.ACPIdentity.Android.0.0.1.nupkg
+        path: bin
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Adobe.ACPLifecycle.Android.0.0.1.nupkg
+        path: bin
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Adobe.ACPSignal.Android.0.0.1.nupkg
+        path: bin
         
   iOS:
     runs-on: macos-latest
@@ -35,3 +51,7 @@ jobs:
         nuget restore
         cd Adobe.ACPCore.iOS/
         msbuild -t:build
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Adobe.ACPCore.iOS.0.0.1.nupkg
+        path: bin
