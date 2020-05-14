@@ -30,7 +30,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: Adobe.ACPIdentity.Android.0.0.1.nupkg
-        path: bin/Adobe.Identity.Android.0.0.1.nupkg
+        path: bin/Adobe.ACPIdentity.Android.0.0.1.nupkg
     - uses: actions/upload-artifact@v2
       with:
         name: Adobe.ACPLifecycle.Android.0.0.1.nupkg
