@@ -1,5 +1,6 @@
 # Adobe Experience Platform - Core plugin for Xamarin apps
 ![CI](https://github.com/adobe/xamarin-acpcore/workflows/CI%20on%20push%20and%20pull/badge.svg)
+
 [![GitHub](https://img.shields.io/github/license/adobe/xamarin-acpcore)](https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE)
 
 - [Prerequisites](#prerequisites)
