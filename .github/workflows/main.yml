@@ -1,5 +1,5 @@
 
-name: CI on push and pull
+name: CI
 
 on:
   push:
