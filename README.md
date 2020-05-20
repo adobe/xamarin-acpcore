@@ -19,7 +19,7 @@ Xamarin development requires the installation of [Microsoft Visual Studio](https
 
 **Package Manager Installation**
 
-The ACPCore Xamarin NuGet package for Android or iOS can be added to your project by right clicking the _"Packages"_ folder within the project you are working on then selecting _"Manage NuGet Packages"_. In the window that opens, ensure that your selected source is `nuget.org` and search for _"Adobe.ACP"_. After selecting the Xamarin AEP SDK packages that are required, click on the _"Add Packages"_ button.
+The ACPCore Xamarin NuGet package for Android or iOS can be added to your project by right clicking the _"Packages"_ folder within the project you are working on then selecting _"Manage NuGet Packages"_. In the window that opens, ensure that your selected source is `nuget.org` and search for _"Adobe.ACP"_. After selecting the Xamarin AEP SDK packages that are required, click on the _"Add Packages"_ button. After exiting the _"Add Packages"_ menu, right click the main solution or the _"Packages"_ folder and select _"Restore"_ to ensure the added packages are downloaded.
 
 **Manual installation**
 
@@ -35,7 +35,7 @@ followed by:
 make release
 ```
 
-The created NuGet packages can be found in the `bin` directory and can be added as a local NuGet package to a Xamarin project.
+The created NuGet packages can be found in the `bin` directory. This directory can be added as a local nuget source and packages within the directory can be added to a Xamarin project following the steps in the "Package Manager Installation" above.
 
 ## Usage
 
@@ -653,7 +653,7 @@ class StringCallback : Java.Lang.Object, IAdobeCallback
 }
 ```
 
-### [Lifecycle](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core/lifecycle)
+### [Lifecycle](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core/lifecycle)
 
 ##### Getting Lifecycle version:
 
