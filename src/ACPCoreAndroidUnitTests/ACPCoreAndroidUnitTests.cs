@@ -293,13 +293,12 @@ namespace ACPCoreAndroidUnitTests
 
         class GetIdentifiersCallback : Java.Lang.Object, IAdobeCallback
         {
-            public void Call(Java.Lang.Object visitorIDs)
+            public void Call(Java.Lang.Object retrievedIds)
             {
-                JavaList ids = null;
                 retrievedVisitorIdentifiers = "[]";
-                if (visitorIDs != null)
+                if (retrievedIds != null)
                 {
-                    ids = (JavaList)visitorIDs;
+                    var ids = GetObject<JavaList>(retrievedIds.Handle, JniHandleOwnership.DoNotTransfer);
                     if (!ids.IsEmpty)
                     {
                         retrievedVisitorIdentifiers = "";
