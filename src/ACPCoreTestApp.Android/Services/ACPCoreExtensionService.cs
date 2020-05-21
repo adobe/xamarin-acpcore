@@ -12,8 +12,10 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 using Android.Runtime;
 using Com.Adobe.Marketing.Mobile;
+using System.Collections;
 
 namespace ACPCoreTestApp.Droid
 {
@@ -248,14 +250,13 @@ namespace ACPCoreTestApp.Droid
 
         class GetIdentifiersCallback : Java.Lang.Object, IAdobeCallback
         {
-            public void Call(Java.Lang.Object visitorIDs)
+            public void Call(Java.Lang.Object retrievedIds)
             {
-                JavaList ids = null;
                 System.String visitorIdsString = "[]";
-                if (visitorIDs != null)
+                if (retrievedIds != null)
                 {
-                    ids = (JavaList)visitorIDs;
-                    if (!ids.IsEmpty)
+                    var ids = GetObject<JavaList>(retrievedIds.Handle, JniHandleOwnership.DoNotTransfer);
+                    if (ids != null && ids.Count > 0)
                     {
                         visitorIdsString = "";
                         foreach (VisitorID id in ids)
