@@ -1,10 +1,10 @@
 # Adobe Experience Platform - Core plugin for Xamarin apps
 ![CI](https://github.com/adobe/xamarin-acpcore/workflows/CI/badge.svg)
-[![NuGet](https://buildstats.info/nuget/Adobe.ACPCore.Android)](https://www.nuget.org/packages/Adobe.ACPCore.Android/)
-[![NuGet](https://buildstats.info/nuget/Adobe.ACPIdentity.Android)](https://www.nuget.org/packages/Adobe.ACPIdentity.Android/)
-[![NuGet](https://buildstats.info/nuget/Adobe.ACPLifecycle.Android)](https://www.nuget.org/packages/Adobe.ACPLifecycle.Android/)
-[![NuGet](https://buildstats.info/nuget/Adobe.ACPSignal.Android)](https://www.nuget.org/packages/Adobe.ACPSignal.Android/)
-[![NuGet](https://buildstats.info/nuget/Adobe.ACPCore.iOS)](https://www.nuget.org/packages/Adobe.ACPCore.iOS/)
+[![ACPCore.Android](https://buildstats.info/nuget/Adobe.ACPCore.Android)](https://www.nuget.org/packages/Adobe.ACPCore.Android/)
+[![ACPIdentity.Android](https://buildstats.info/nuget/Adobe.ACPIdentity.Android)](https://www.nuget.org/packages/Adobe.ACPIdentity.Android/)
+[![ACPLifecycle.Android](https://buildstats.info/nuget/Adobe.ACPLifecycle.Android)](https://www.nuget.org/packages/Adobe.ACPLifecycle.Android/)
+[![ACPSignal.Android](https://buildstats.info/nuget/Adobe.ACPSignal.Android)](https://www.nuget.org/packages/Adobe.ACPSignal.Android/)
+[![ACPCore.iOS](https://buildstats.info/nuget/Adobe.ACPCore.iOS)](https://www.nuget.org/packages/Adobe.ACPCore.iOS/)
 [![GitHub](https://img.shields.io/github/license/adobe/xamarin-acpcore)](https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE)
 
 - [Prerequisites](#prerequisites)
