@@ -16,16 +16,19 @@ using System.Linq;
 using Android.Runtime;
 using Com.Adobe.Marketing.Mobile;
 using System.Collections;
+using System.Threading;
 
 namespace ACPCoreTestApp.Droid
 {
     public class ACPCoreExtensionService : IACPCoreExtensionService
     {
         TaskCompletionSource<string> stringOutput;
+        private static CountdownEvent latch = null;
+        private static string callbackString = "";
 
         public ACPCoreExtensionService()
         {
-        }        
+        }
 
         // ACPCore methods
         public TaskCompletionSource<string> GetExtensionVersionCore()
@@ -76,17 +79,21 @@ namespace ACPCoreTestApp.Droid
 
         public TaskCompletionSource<string> GetPrivacyStatus()
         {
+            latch = new CountdownEvent(1);
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.GetPrivacyStatus(new StringCallback());
-            stringOutput.SetResult("completed");
+            latch.Wait(1000);
+            stringOutput.SetResult(callbackString);
             return stringOutput;
         }
 
         public TaskCompletionSource<string> GetSDKIdentities()
         {
+            latch = new CountdownEvent(1);
             stringOutput = new TaskCompletionSource<string>();
             ACPCore.GetSdkIdentities(new StringCallback());
-            stringOutput.SetResult("completed");
+            latch.Wait(1000);
+            stringOutput.SetResult(callbackString);
             return stringOutput;
         }
 
@@ -154,40 +161,48 @@ namespace ACPCoreTestApp.Droid
 
         public TaskCompletionSource<string> AppendVisitorInfoForUrl()
         {
+            latch = new CountdownEvent(1);
             stringOutput = new TaskCompletionSource<string>();
             ACPIdentity.AppendVisitorInfoForURL("https://example.com", new StringCallback());
-            stringOutput.SetResult("");
+            latch.Wait(1000);
+            stringOutput.SetResult(callbackString);
             return stringOutput;
         }
 
         public TaskCompletionSource<string> GetExperienceCloudId()
         {
+            latch = new CountdownEvent(1);
             stringOutput = new TaskCompletionSource<string>();
             ACPIdentity.GetExperienceCloudId(new StringCallback());
-            stringOutput.SetResult("");
+            latch.Wait(1000);
+            stringOutput.SetResult(callbackString);
             return stringOutput;
         }
 
         public TaskCompletionSource<string> GetIdentifiers()
         {
+            latch = new CountdownEvent(1);
             stringOutput = new TaskCompletionSource<string>();
             ACPIdentity.GetIdentifiers(new GetIdentifiersCallback());
-            stringOutput.SetResult("");
+            latch.Wait(1000);
+            stringOutput.SetResult(callbackString);
             return stringOutput;
         }
 
         public TaskCompletionSource<string> GetUrlVariables()
         {
+            latch = new CountdownEvent(1);
             stringOutput = new TaskCompletionSource<string>();
             ACPIdentity.GetUrlVariables(new StringCallback());
-            stringOutput.SetResult("");
+            latch.Wait(1000);
+            stringOutput.SetResult(callbackString);
             return stringOutput;
         }
 
         public TaskCompletionSource<string> SyncIdentifier()
         {
             stringOutput = new TaskCompletionSource<string>();
-            ACPIdentity.SyncIdentifier("name", "john", VisitorID.AuthenticationState.Authenticated); 
+            ACPIdentity.SyncIdentifier("name", "john", VisitorID.AuthenticationState.Authenticated);
             stringOutput.SetResult("completed");
             return stringOutput;
         }
@@ -239,11 +254,15 @@ namespace ACPCoreTestApp.Droid
             {
                 if (stringContent != null)
                 {
-                    Console.WriteLine(stringContent);
+                    callbackString = stringContent.ToString();
                 }
                 else
                 {
-                    Console.WriteLine("null content in string callback");
+                    callbackString = "null content in string callback";
+                }
+                if (latch != null)
+                {
+                    latch.Signal();
                 }
             }
         }
@@ -265,7 +284,11 @@ namespace ACPCoreTestApp.Droid
                         }
                     }
                 }
-                Console.WriteLine("Retrieved visitor ids: " + visitorIdsString);
+                callbackString = "Retrieved visitor ids: " + visitorIdsString;
+                if (latch != null)
+                {
+                    latch.Signal();
+                }
             }
         }
 
@@ -274,12 +297,12 @@ namespace ACPCoreTestApp.Droid
 
             public void Call(Java.Lang.Object sdkEvent)
             {
-                Console.WriteLine("AEP SDK event data: " + sdkEvent.ToString());
+                callbackString = "AEP SDK event data: " + sdkEvent.ToString();
             }
 
             public void Error(Java.Lang.Object error)
             {
-                Console.WriteLine("AEP SDK Error: " + error.ToString());
+                callbackString = "AEP SDK Error: " + error.ToString();
             }
 
         }
