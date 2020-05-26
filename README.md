@@ -49,7 +49,7 @@ The ACPCore binding can be opened by loading the ACPCoreBinding.sln with Visual 
 
 - Adobe.ACPCore.iOS - The ACPCore iOS bindings which includes ACPCore, ACPIdentity, ACPLifecycle, and ACPSignal.
 - Adobe.ACPCore.Android - The ACPCore Android binding.
-- Adobe.ACPCoreBridge.Android - The ACPCoreBridge Android binding.
+- Adobe.ACPCoreBridge.Android - The ACPCoreBridge Android binding. This is used by the Xamarin Android ACPGriffon binding to correctly start a Griffon session from within an app activity.
 - Adobe.ACPCIdentity.Android - The ACPIdentity Android binding.
 - Adobe.ACPLifecycle.Android - The ACPLifecycle Android binding.
 - Adobe.ACPSIgnal.Android - The ACPSignal Android binding.
