@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.props')" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -20,6 +20,7 @@
     <Title>Adobe.ACPCore.tvOS</Title>
     <DevelopmentDependency>true</DevelopmentDependency>
     <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
+    <PackOnBuild>true</PackOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,38 +58,26 @@
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="..\..\..\..\..\xamarin-tvos\builds\core\libACPCore_tvOS.a">
+    <NativeReference Include="..\..\..\acp-sdks-2.8.2-ACPCore\libACPCore_tvOS.a">
       <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <SmartLink>False</SmartLink>
     </NativeReference>
-    <NativeReference Include="..\..\..\..\..\xamarin-tvos\builds\core\libACPIdentity_tvOS.a">
+    <NativeReference Include="..\..\..\acp-sdks-2.8.2-ACPCore\libACPIdentity_tvOS.a">
       <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <SmartLink>False</SmartLink>
     </NativeReference>
-    <NativeReference Include="..\..\..\..\..\xamarin-tvos\builds\core\libACPLifecycle_tvOS.a">
+    <NativeReference Include="..\..\..\acp-sdks-2.8.2-ACPCore\libACPLifecycle_tvOS.a">
       <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <SmartLink>False</SmartLink>
     </NativeReference>
-    <NativeReference Include="..\..\..\..\..\xamarin-tvos\builds\core\libACPSignal_tvOS.a">
+    <NativeReference Include="..\..\..\acp-sdks-2.8.2-ACPCore\libACPSignal_tvOS.a">
       <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
+      <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\TVOS\Xamarin.TVOS.ObjCBinding.CSharp.targets" />
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.5-dev.8\build\NuGet.Build.Packaging.targets')" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.targets')" />
 </Project>

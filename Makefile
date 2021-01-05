@@ -7,6 +7,7 @@ setup:
 	cd src/Adobe.ACPLifecycle.Android/ && msbuild -t:restore
 	cd src/Adobe.ACPSignal.Android/ && msbuild -t:restore
 	cd src/Adobe.ACPCore.iOS/ && msbuild -t:restore
+	cd src/Adobe.ACPCore.tvOS/ && msbuild -t:restore	
 
 msbuild-clean:
 	cd src && msbuild -t:clean
@@ -25,19 +26,22 @@ clean-folders:
 	rm -rf src/Adobe.ACPSignal.Android/obj
 	rm -rf src/Adobe.ACPCore.iOS/bin/Debug
 	rm -rf src/Adobe.ACPCore.iOS/obj
+	rm -rf src/Adobe.ACPCore.tvOS/bin/Debug
+	rm -rf src/Adobe.ACPCore.tvOS/obj
 	rm -rf bin
 
 clean: msbuild-clean clean-folders setup
 
 # Makes ACPCore bindings and NuGet packages. The bindings (.dll) will be available in BindingDirectory/bin/Debug
 # The NuGet packages get created in the same directory but are then moved to src/bin.
-release:
+release:	
 	cd src/Adobe.ACPCore.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPCoreBridge.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPIdentity.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPLifecycle.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPSignal.Android/ && msbuild -t:pack
 	cd src/Adobe.ACPCore.iOS/ && msbuild -t:build	
+	cd src/Adobe.ACPCore.tvOS/ && msbuild -t:build	
 	mkdir bin
 	cp src/Adobe.ACPCore.Android/bin/Debug/*.nupkg ./bin
 	cp src/Adobe.ACPCoreBridge.Android/bin/Debug/*.nupkg ./bin
@@ -45,3 +49,4 @@ release:
 	cp src/Adobe.ACPLifecycle.Android/bin/Debug/*.nupkg ./bin
 	cp src/Adobe.ACPSignal.Android/bin/Debug/*.nupkg ./bin
 	cp src/Adobe.ACPCore.iOS/bin/Debug/*.nupkg ./bin
+	cp src/Adobe.ACPCore.tvOS/bin/Debug/*.nupkg ./bin
