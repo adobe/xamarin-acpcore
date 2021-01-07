@@ -5,6 +5,7 @@
 [![ACPLifecycle.Android](https://buildstats.info/nuget/Adobe.ACPLifecycle.Android)](https://www.nuget.org/packages/Adobe.ACPLifecycle.Android/)
 [![ACPSignal.Android](https://buildstats.info/nuget/Adobe.ACPSignal.Android)](https://www.nuget.org/packages/Adobe.ACPSignal.Android/)
 [![ACPCore.iOS](https://buildstats.info/nuget/Adobe.ACPCore.iOS)](https://www.nuget.org/packages/Adobe.ACPCore.iOS/)
+[![ACPCore.tvOS](https://buildstats.info/nuget/Adobe.ACPCore.tvOS)](https://www.nuget.org/packages/Adobe.ACPCore.tvOS/)
 [![GitHub](https://img.shields.io/github/license/adobe/xamarin-acpcore)](https://github.com/adobe/xamarin-acpcore/blob/master/LICENSE)
 
 - [Prerequisites](#prerequisites)
@@ -19,13 +20,13 @@
 
 Xamarin development requires the installation of [Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/). Information regarding installation for Xamarin development is available for [Mac](https://docs.microsoft.com/en-us/visualstudio/mac/installation?view=vsmac-2019) or [Windows](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019).
 
- An [Apple developer account](https://developer.apple.com/programs/enroll/) and the latest version of Xcode (available from the App Store) are required if you are [building an iOS app](https://docs.microsoft.com/en-us/visualstudio/mac/installation?view=vsmac-2019).
+ An [Apple developer account](https://developer.apple.com/programs/enroll/) and the latest version of Xcode (available from the App Store) are required if you are [building an iOS or tvOS app](https://docs.microsoft.com/en-us/visualstudio/mac/installation?view=vsmac-2019).
 
 ## Installation
 
 **Package Manager Installation**
 
-The ACPCore Xamarin NuGet package for Android or iOS can be added to your project by right clicking the _"Packages"_ folder within the project you are working on then selecting _"Manage NuGet Packages"_. In the window that opens, ensure that your selected source is `nuget.org` and search for _"Adobe.ACP"_. After selecting the Xamarin AEP SDK packages that are required, click on the _"Add Packages"_ button. After exiting the _"Add Packages"_ menu, right click the main solution or the _"Packages"_ folder and select _"Restore"_ to ensure the added packages are downloaded.
+The ACPCore Xamarin NuGet package for Android or iOS or tvOS  can be added to your project by right clicking the _"Packages"_ folder within the project you are working on then selecting _"Manage NuGet Packages"_. In the window that opens, ensure that your selected source is `nuget.org` and search for _"Adobe.ACP"_. After selecting the Xamarin AEP SDK packages that are required, click on the _"Add Packages"_ button. After exiting the _"Add Packages"_ menu, right click the main solution or the _"Packages"_ folder and select _"Restore"_ to ensure the added packages are downloaded.
 
 **Manual installation**
 
@@ -48,6 +49,7 @@ The created NuGet packages can be found in the `bin` directory. This directory c
 The ACPCore binding can be opened by loading the ACPCoreBinding.sln with Visual Studio. The following targets are available in the solution:
 
 - Adobe.ACPCore.iOS - The ACPCore iOS bindings which includes ACPCore, ACPIdentity, ACPLifecycle, and ACPSignal.
+- Adobe.ACPCore.tvOS - The ACPCore tvOS bindings which includes ACPCore, ACPIdentity, ACPLifecycle, and ACPSignal.
 - Adobe.ACPCore.Android - The ACPCore Android binding.
 - Adobe.ACPCoreBridge.Android - The ACPCoreBridge Android binding. This is used by the Xamarin Android ACPGriffon binding to correctly start a Griffon session from within an app activity.
 - Adobe.ACPCIdentity.Android - The ACPIdentity Android binding.
@@ -55,9 +57,11 @@ The ACPCore binding can be opened by loading the ACPCoreBinding.sln with Visual 
 - Adobe.ACPSIgnal.Android - The ACPSignal Android binding.
 - ACPCoreTestApp - The Xamarin.Forms base app used by the iOS and Android test apps.
 - ACPCoreTestApp.iOS - The Xamarin.Forms based iOS manual test app.
+- ACPCoreTestApp.tvOS - The Storyboard based tvOS manual test app.
 - ACPCoreTestApp.Android - The Xamarin.Forms based Android manual test app.
 - ACPCoreiOSUnitTests - iOS unit test app.
 - ACPCoreAndroidUnitTests - Android unit test app.
+
 
 ### [Core](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core)
 

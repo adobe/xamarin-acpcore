@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A189C7B-C4BE-4487-836B-081C05E06C31}</ProjectGuid>
+    <ProjectTypeGuids>{4A1ED743-3331-459B-915A-4B17C7B6DBB6};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Com.Adobe.Marketing.Mobile</RootNamespace>
+    <AssemblyName>Adobe.ACPCore.tvOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <PackageId>Adobe.ACPCore.tvOS</PackageId>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Authors>Adobe Inc.</Authors>
+    <Description>Adobe Experience Platform - Core plugin for Xamarin tvOS.</Description>
+    <Copyright>Copyright 2020 Adobe. All rights reserved. This file is licensed to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</Copyright>
+    <Owners>Adobe Inc.</Owners>
+    <Summary>Adobe Experience Platform - Core plugin for Xamarin tvOS.</Summary>
+    <Title>Adobe.ACPCore.tvOS</Title>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <PackageProjectUrl>https://github.com/adobe/xamarin-acpcore</PackageProjectUrl>
+    <PackOnBuild>true</PackOnBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>Default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>Default</LangVersion>
+    <BTouchExtraArgs></BTouchExtraArgs>
+    <BTouchExtraArgs></BTouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.TVOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="Structs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="libACPCore_tvOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <Frameworks>UiKit SystemConfiguration</Frameworks>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="libACPIdentity_tvOS.a">
+      <Kind>Static</Kind>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>UiKit SystemConfiguration</Frameworks>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+    </NativeReference>
+    <NativeReference Include="libACPLifecycle_tvOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>UiKit SystemConfiguration</Frameworks>
+    </NativeReference>
+    <NativeReference Include="libACPSignal_tvOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <Frameworks>UiKit SystemConfiguration</Frameworks>
+    </NativeReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\TVOS\Xamarin.TVOS.ObjCBinding.CSharp.targets" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.3\build\NuGet.Build.Packaging.targets')" />
+</Project>
