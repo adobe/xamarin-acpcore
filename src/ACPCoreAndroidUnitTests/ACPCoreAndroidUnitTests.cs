@@ -46,7 +46,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPCoreExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("1.5.3-XM"));
+            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("1.8.0-X"));
         }
 
         [Test]
@@ -152,7 +152,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPIdentityExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPIdentity.ExtensionVersion(), Is.EqualTo("1.2.0"));
+            Assert.That(ACPIdentity.ExtensionVersion(), Is.EqualTo("1.2.2"));
         }
 
         [Test]
@@ -220,7 +220,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPLifecycleExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPLifecycle.ExtensionVersion(), Is.EqualTo("1.0.4"));
+            Assert.That(ACPLifecycle.ExtensionVersion(), Is.EqualTo("1.0.7"));
         }
 
         // ACPSignal tests

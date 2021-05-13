@@ -79,7 +79,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\core-1.5.3.aar" />
+    <LibraryProjectZip Include="Jars\core-1.8.0.aar" />
   </ItemGroup>
   <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
