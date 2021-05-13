@@ -347,3 +347,5 @@ src/ACPCoreTestApp.Android/Additions/AboutAdditions.txt
 src/ACPCoreTestApp.Android/Resources/AboutResources.txt
 src/ACPCoreAndroidUnitTests/Assets/AboutAssets.txt
 src/ACPCoreAndroidUnitTests/Resources/AboutResources.txt
+
+acp-sdk/
