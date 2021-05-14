@@ -20,7 +20,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>Adobe.ACPLifecycle.Android</PackageId>
-    <PackageVersion>0.0.1</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Owners>Adobe Inc.</Owners>
     <Title>Adobe.ACPLifecycle.Android</Title>
@@ -71,9 +71,6 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\lifecycle-1.0.4.aar" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="NuGet.Build.Tasks.Pack">
       <Version>5.6.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -85,6 +82,9 @@
       <Project>{782A7AF5-693F-4FF1-AA88-9AF838CE9E51}</Project>
       <Name>Adobe.ACPCore.Android</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryProjectZip Include="Jars\lifecycle-1.0.7.aar" />
   </ItemGroup>
   <Import Project="\Library\Frameworks\Xamarin.Android.framework\Libraries\xamarin.android\xbuild\Xamarin\Android\Xamarin.Android.Bindings.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

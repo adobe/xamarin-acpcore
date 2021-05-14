@@ -15,7 +15,6 @@ jobs:
     - name: Android
       run: |
         cd src/
-        nuget sources add -name nugetizer3000 -Source https://ci.appveyor.com/nuget/nugetizer3000
         nuget restore
         cd Adobe.ACPCore.Android/
         msbuild -t:pack
@@ -44,7 +43,6 @@ jobs:
     - name: iOS
       run: |
         cd src/
-        nuget sources add -name nugetizer3000 -Source https://ci.appveyor.com/nuget/nugetizer3000
         nuget restore
         cd Adobe.ACPCore.iOS/
         msbuild -t:build
