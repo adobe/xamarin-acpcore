@@ -46,7 +46,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPCoreExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("1.8.0-X"));
+            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("1.10.0-X"));
         }
 
         [Test]
@@ -152,7 +152,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPIdentityExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPIdentity.ExtensionVersion(), Is.EqualTo("1.2.2"));
+            Assert.That(ACPIdentity.ExtensionVersion(), Is.EqualTo("1.3.0"));
         }
 
         [Test]
@@ -220,7 +220,7 @@ namespace ACPCoreAndroidUnitTests
         public void GetACPLifecycleExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPLifecycle.ExtensionVersion(), Is.EqualTo("1.0.7"));
+            Assert.That(ACPLifecycle.ExtensionVersion(), Is.EqualTo("1.1.0"));
         }
 
         // ACPSignal tests
@@ -229,7 +229,7 @@ namespace ACPCoreAndroidUnitTests
         {
             // verify
             // todo: this should be 1.0.3 but the current signal aar returns the wrong version
-            Assert.That(ACPSignal.ExtensionVersion(), Is.EqualTo("1.0.2"));
+            Assert.That(ACPSignal.ExtensionVersion(), Is.EqualTo("1.0.4"));
         }
 
         // callbacks

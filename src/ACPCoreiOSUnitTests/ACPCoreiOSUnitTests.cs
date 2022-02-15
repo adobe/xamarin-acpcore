@@ -32,7 +32,7 @@ namespace ACPCoreiOSUnitTests
         public void GetACPCoreExtensionVersion_Returns_CorrectVersion()
         {
             // verify
-            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("2.9.3-X"));
+            Assert.That(ACPCore.ExtensionVersion(), Is.EqualTo("2.9.4-X"));
         }
 
         [Test]
