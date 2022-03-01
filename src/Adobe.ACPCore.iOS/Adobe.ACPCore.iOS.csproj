@@ -12,7 +12,7 @@
     <AssemblyName>Adobe.ACPCore.iOS</AssemblyName>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <PackageId>Adobe.ACPCore.iOS</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>Adobe Inc.</Authors>
     <Owners>Adobe Inc.</Owners>
     <Title>Adobe.ACPCore.iOS</Title>

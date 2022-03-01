@@ -18,5 +18,19 @@
     <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='Rule']" name="visibility">public</attr>
     <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='RuleCondition']" name="visibility">public</attr>
     <attr path="/api/package[@name='com.adobe.marketing.mobile']/class[@name='AndroidFullscreenMessage']" name="visibility">public</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='build']" name="managedReturn">IMessageSettings</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setWidth']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setHeight']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setVerticalAlign']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setHorizontalAlign']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setVerticalInset']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setHorizontalInset']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setUiTakeover']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setDisplayAnimation']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setDismissAnimation']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setBackdropColor']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setBackdropOpacity']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setCornerRadius']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
+    <attr  path="/api/package[@name='com.adobe.marketing.mobile.services.ui']/class[@name='AEPMessageSettings.Builder']/method[@name='setGestures']" name="managedReturn">IMessageSettingsMessageSettingsBuilder</attr>
     <remove-node path="/api/package[@name='com.adobe.marketing.mobile']/interface[@name='FloatingButtonView.OnPositionChangedListener']" />
 </metadata>
