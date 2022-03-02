@@ -155,18 +155,17 @@
     <Compile Include="ViewController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Adobe.ACPCore.tvOS\Adobe.ACPCore.tvOS.csproj">
-      <Project>{3A189C7B-C4BE-4487-836B-081C05E06C31}</Project>
-      <Name>Adobe.ACPCore.tvOS</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.6.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adobe.ACPCore.tvOS\Adobe.ACPCore.tvOS.csproj">
+      <Name>Adobe.ACPCore.tvOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\TVOS\Xamarin.TVOS.CSharp.targets" />
 </Project>

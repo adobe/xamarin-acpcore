@@ -25,6 +25,7 @@ namespace ACPCoreAndroidUnitTests
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Android.NUnitLite.Resource.Id.CreditsButton = global::ACPCoreAndroidUnitTests.Resource.Id.CreditsButton;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionHostName = global::ACPCoreAndroidUnitTests.Resource.Id.OptionHostName;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionPort = global::ACPCoreAndroidUnitTests.Resource.Id.OptionPort;
 			global::Xamarin.Android.NUnitLite.Resource.Id.OptionRemoteServer = global::ACPCoreAndroidUnitTests.Resource.Id.OptionRemoteServer;
@@ -41,10 +42,12 @@ namespace ACPCoreAndroidUnitTests
 			global::Xamarin.Android.NUnitLite.Resource.Id.ResultsPassed = global::ACPCoreAndroidUnitTests.Resource.Id.ResultsPassed;
 			global::Xamarin.Android.NUnitLite.Resource.Id.ResultsResult = global::ACPCoreAndroidUnitTests.Resource.Id.ResultsResult;
 			global::Xamarin.Android.NUnitLite.Resource.Id.ResultStackTrace = global::ACPCoreAndroidUnitTests.Resource.Id.ResultStackTrace;
+			global::Xamarin.Android.NUnitLite.Resource.Id.RunEverythingButton = global::ACPCoreAndroidUnitTests.Resource.Id.RunEverythingButton;
 			global::Xamarin.Android.NUnitLite.Resource.Id.RunTestsButton = global::ACPCoreAndroidUnitTests.Resource.Id.RunTestsButton;
 			global::Xamarin.Android.NUnitLite.Resource.Id.TestSuiteListView = global::ACPCoreAndroidUnitTests.Resource.Id.TestSuiteListView;
 			global::Xamarin.Android.NUnitLite.Resource.Layout.options = global::ACPCoreAndroidUnitTests.Resource.Layout.options;
 			global::Xamarin.Android.NUnitLite.Resource.Layout.results = global::ACPCoreAndroidUnitTests.Resource.Layout.results;
+			global::Xamarin.Android.NUnitLite.Resource.Layout.Runner = global::ACPCoreAndroidUnitTests.Resource.Layout.Runner;
 			global::Xamarin.Android.NUnitLite.Resource.Layout.test_result = global::ACPCoreAndroidUnitTests.Resource.Layout.test_result;
 			global::Xamarin.Android.NUnitLite.Resource.Layout.test_suite = global::ACPCoreAndroidUnitTests.Resource.Layout.test_suite;
 		}
@@ -65,59 +68,65 @@ namespace ACPCoreAndroidUnitTests
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int OptionHostName = 2131034113;
+			// aapt resource value: 0x7f04000d
+			public const int CreditsButton = 2130968589;
 			
-			// aapt resource value: 0x7f050002
-			public const int OptionPort = 2131034114;
+			// aapt resource value: 0x7f040001
+			public const int OptionHostName = 2130968577;
 			
-			// aapt resource value: 0x7f050000
-			public const int OptionRemoteServer = 2131034112;
+			// aapt resource value: 0x7f040002
+			public const int OptionPort = 2130968578;
 			
-			// aapt resource value: 0x7f050010
-			public const int OptionsButton = 2131034128;
+			// aapt resource value: 0x7f040000
+			public const int OptionRemoteServer = 2130968576;
 			
-			// aapt resource value: 0x7f05000b
-			public const int ResultFullName = 2131034123;
+			// aapt resource value: 0x7f04000c
+			public const int OptionsButton = 2130968588;
 			
-			// aapt resource value: 0x7f05000d
-			public const int ResultMessage = 2131034125;
+			// aapt resource value: 0x7f04000f
+			public const int ResultFullName = 2130968591;
 			
-			// aapt resource value: 0x7f05000c
-			public const int ResultResultState = 2131034124;
+			// aapt resource value: 0x7f040011
+			public const int ResultMessage = 2130968593;
 			
-			// aapt resource value: 0x7f05000a
-			public const int ResultRunSingleMethodTest = 2131034122;
+			// aapt resource value: 0x7f040010
+			public const int ResultResultState = 2130968592;
 			
-			// aapt resource value: 0x7f05000e
-			public const int ResultStackTrace = 2131034126;
+			// aapt resource value: 0x7f04000e
+			public const int ResultRunSingleMethodTest = 2130968590;
 			
-			// aapt resource value: 0x7f050006
-			public const int ResultsFailed = 2131034118;
+			// aapt resource value: 0x7f040012
+			public const int ResultStackTrace = 2130968594;
 			
-			// aapt resource value: 0x7f050003
-			public const int ResultsId = 2131034115;
+			// aapt resource value: 0x7f040006
+			public const int ResultsFailed = 2130968582;
 			
-			// aapt resource value: 0x7f050007
-			public const int ResultsIgnored = 2131034119;
+			// aapt resource value: 0x7f040003
+			public const int ResultsId = 2130968579;
 			
-			// aapt resource value: 0x7f050008
-			public const int ResultsInconclusive = 2131034120;
+			// aapt resource value: 0x7f040007
+			public const int ResultsIgnored = 2130968583;
 			
-			// aapt resource value: 0x7f050009
-			public const int ResultsMessage = 2131034121;
+			// aapt resource value: 0x7f040008
+			public const int ResultsInconclusive = 2130968584;
 			
-			// aapt resource value: 0x7f050005
-			public const int ResultsPassed = 2131034117;
+			// aapt resource value: 0x7f040009
+			public const int ResultsMessage = 2130968585;
 			
-			// aapt resource value: 0x7f050004
-			public const int ResultsResult = 2131034116;
+			// aapt resource value: 0x7f040005
+			public const int ResultsPassed = 2130968581;
 			
-			// aapt resource value: 0x7f05000f
-			public const int RunTestsButton = 2131034127;
+			// aapt resource value: 0x7f040004
+			public const int ResultsResult = 2130968580;
 			
-			// aapt resource value: 0x7f050011
-			public const int TestSuiteListView = 2131034129;
+			// aapt resource value: 0x7f04000b
+			public const int RunEverythingButton = 2130968587;
+			
+			// aapt resource value: 0x7f040013
+			public const int RunTestsButton = 2130968595;
+			
+			// aapt resource value: 0x7f04000a
+			public const int TestSuiteListView = 2130968586;
 			
 			static Id()
 			{
@@ -139,10 +148,13 @@ namespace ACPCoreAndroidUnitTests
 			public const int results = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int test_result = 2130903042;
+			public const int Runner = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int test_suite = 2130903043;
+			public const int test_result = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int test_suite = 2130903044;
 			
 			static Layout()
 			{
@@ -166,22 +178,6 @@ namespace ACPCoreAndroidUnitTests
 			}
 			
 			private Mipmap()
-			{
-			}
-		}
-		
-		public partial class String
-		{
-			
-			// aapt resource value: 0x7f040000
-			public const int app_name = 2130968576;
-			
-			static String()
-			{
-				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
-			}
-			
-			private String()
 			{
 			}
 		}
