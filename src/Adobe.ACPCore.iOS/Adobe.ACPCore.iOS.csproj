@@ -66,40 +66,40 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="libACPCore_iOS.a">
-      <Kind>Static</Kind>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lsqlite3 -lc++ -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration WebKit UserNotifications</Frameworks>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="libACPIdentity_iOS.a">
-      <Kind>Static</Kind>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="libACPLifecycle_iOS.a">
-      <Kind>Static</Kind>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
-    <NativeReference Include="libACPSignal_iOS.a">
-      <Kind>Static</Kind>
-      <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UIKit SystemConfiguration</Frameworks>
-      <ForceLoad>True</ForceLoad>
-    </NativeReference>
     <NativeReference Include="ACPCore.framework">
       <Kind>Framework</Kind>
       <ForceLoad>True</ForceLoad>
       <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
       <IsCxx>True</IsCxx>
       <Frameworks>UIKit SystemConfiguration WebKit UserNotifications</Frameworks>
+    </NativeReference>
+    <NativeReference Include="libACPSignal_iOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+      <Frameworks></Frameworks>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="libACPLifecycle_iOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+      <Frameworks></Frameworks>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="libACPIdentity_iOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+      <Frameworks></Frameworks>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+    </NativeReference>
+    <NativeReference Include="libACPCore_iOS.a">
+      <Kind>Static</Kind>
+      <ForceLoad>True</ForceLoad>
+      <IsCxx>True</IsCxx>
+      <Frameworks></Frameworks>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
     </NativeReference>
   </ItemGroup>
   <ItemGroup>

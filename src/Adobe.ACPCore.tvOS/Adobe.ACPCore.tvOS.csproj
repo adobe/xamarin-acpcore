@@ -63,31 +63,27 @@
   <ItemGroup>
     <NativeReference Include="libACPCore_tvOS.a">
       <Kind>Static</Kind>
-      <ForceLoad>True</ForceLoad>
-      <Frameworks>UiKit SystemConfiguration</Frameworks>
-      <IsCxx>True</IsCxx>
       <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
+      <IsCxx>True</IsCxx>
+      <ForceLoad>True</ForceLoad>
     </NativeReference>
-    <NativeReference Include="libACPIdentity_tvOS.a">
+    <NativeReference Include="libACPSignal_tvOS.a">
       <Kind>Static</Kind>
       <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UiKit SystemConfiguration</Frameworks>
       <ForceLoad>True</ForceLoad>
       <IsCxx>True</IsCxx>
     </NativeReference>
     <NativeReference Include="libACPLifecycle_tvOS.a">
       <Kind>Static</Kind>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
       <ForceLoad>True</ForceLoad>
       <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UiKit SystemConfiguration</Frameworks>
     </NativeReference>
-    <NativeReference Include="libACPSignal_tvOS.a">
+    <NativeReference Include="libACPIdentity_tvOS.a">
       <Kind>Static</Kind>
+      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
       <ForceLoad>True</ForceLoad>
       <IsCxx>True</IsCxx>
-      <LinkerFlags>-lc++ -lsqlite3 -lz</LinkerFlags>
-      <Frameworks>UiKit SystemConfiguration</Frameworks>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\TVOS\Xamarin.TVOS.ObjCBinding.CSharp.targets" />

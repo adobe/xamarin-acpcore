@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adobe.ACPCore.iOS\Adobe.ACPCore.iOS.csproj">
-      <Project>{2432F4D0-1B4F-44BF-828F-C5FAF7847894}</Project>
       <Name>Adobe.ACPCore.iOS</Name>
     </ProjectReference>
   </ItemGroup>
